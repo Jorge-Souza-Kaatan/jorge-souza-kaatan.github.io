@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Jorge Souza Oliveira dos Santos">
+  <meta name="description" content="">
+  <!--
+  -->
+  <link rel="stylesheet" href="/kaatan/app/app.css">
+  <link rel="stylesheet" href="/kaatan/app/portrait.css">
+  <link rel="shortcut icon" href="/kaatan/files/ret_branco.svg" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+  <title>Kaatan - 100% Brasileira</title>
+</head>
+
+<body>
+  <div id="left-bar"></div>
+  <div id="app">
+    <div id="splash-screen">
+      <div>
+        <h2 style="padding: 25px;">Em Breve: Kaatan Chat!</h2>
+        <img src="/kaatan/files/ret_branco.svg">
+      </div>
+    </div>
+  </div>
+  <div id="right-bar"></div>
+</body>
+
+</html>
+<script>
+  window.addEventListener('load', e => {
+    // Check if service workers are supported
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(function (registration) {
+        // Registration was successful :)
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function (err) {
+        // Registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    }
+    addEventListener('contextmenu', e => e.preventDefault());
+    setInterval(e => {
+      if ((window.innerWidth * 0.8) > window.innerHeight) {
+        document.styleSheets[1].disabled = true;
+      } else {
+        document.styleSheets[1].disabled = false;
+      }
+    }, 999);
+    let splashScreen = document.getElementById("splash-screen");
+    splashScreen.onclick = () => {
+      let som = new Audio();
+      som.src = "/kaatan/files/splash.mp3";
+      som.volume = 0.5;
+      som.play();
+    }
+    //playAudio();
+    setTimeout(() => {
+      let KaatanConsoleBrand = `
+██   ██  █████   █████  ████████  █████  ███    ██
+██  ██  ██   ██ ██   ██    ██    ██   ██ ████   ██
+█████   ███████ ███████    ██    ███████ ██ ██  ██
+██  ██  ██   ██ ██   ██    ██    ██   ██ ██  ██ ██
+██   ██ ██   ██ ██   ██    ██    ██   ██ ██   ████
+        `;
+      console.log(KaatanConsoleBrand);
+    }, 2998);
+  });
+</script>

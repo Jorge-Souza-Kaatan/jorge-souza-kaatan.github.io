@@ -1,0 +1,22 @@
+/* #region APP */
+#app {
+  width: 100%;
+}
+#left-bar {
+  display: none;
+}
+#right-bar {
+  display: none;
+}
+/* #endregion */
+
+/* #region MODAL */
+.modal-content {
+  width: 80% !important;
+}
+/* #endregion */
+
+/* #region */
+/* #endregion */
+/* #region */
+/* #endregion */

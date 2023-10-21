@@ -1,0 +1,128 @@
+{
+  "lang": "pt-BR",
+  "name": "Kaatan Chat | 100% Brasileiro",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "/",
+  "short_name": "Webboard",
+  "theme_color": "#000","theme": {
+    "colors": {
+      "frame": "#000",
+      "tab_background_text": "#000"
+    }
+  },
+  "description": "Enhance your work day and solve your cross platform whiteboarding needs with webboard! Draw text, shapes, attach images and more and share those whiteboards with anyone through OneDrive!",
+  "orientation": "any",
+  "background_color": "#303030",
+  "screenshots": [
+    {
+      "src": "/kaatan/files/ret_branco.svg"
+    }
+  ],
+  "features": [
+    "Cross Platform",
+    "low-latency inking",
+    "fast",
+    "useful AI"
+  ],
+  "icons": [
+    {
+      "src": "/kaatan/files/logo128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/kaatan/files/logo256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/kaatan/files/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat",
+      "short_name": "Chat",
+      "description": "Bora bater um papo?",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/kaatan/files/logo128.png",
+          "sizes": "128x128",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "/kaatan/files/logo256.png",
+          "sizes": "256x256",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "/kaatan/files/logo512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "Meu Perfil",
+      "short_name": "Meu Perfil",
+      "description": "Ver meu perfil no Kaatan Chat",
+      "url": "/perfil/",
+      "icons": [
+        {
+          "src": "/kaatan/files/logo128.png",
+          "sizes": "128x128",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "/kaatan/files/logo256.png",
+          "sizes": "256x256",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "/kaatan/files/logo512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "Contatos",
+      "short_name": "Meus Contatos",
+      "description": "Ver minha lista de contatos",
+      "url": "/contatos/",
+      "icons": [
+        {
+          "src": "/kaatan/files/logo128.png",
+          "sizes": "128x128",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "/kaatan/files/logo256.png",
+          "sizes": "256x256",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "/kaatan/files/logo512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    }
+  ]
+}
