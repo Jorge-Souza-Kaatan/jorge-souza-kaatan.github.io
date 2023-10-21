@@ -1,7 +1,7 @@
 /* #region CONFIGURAÇÕES */
 @font-face {
     font-family: chisel;
-    src: url("/kaatan/files/Chisel Mark.ttf");
+    src: url("/files/Chisel Mark.ttf");
 }
 
 :root {
@@ -12,7 +12,7 @@
     --ForegroundElement: #00DD88;
     --ForegroundInvert: #DD2080;
     --Gradiente45: linear-gradient(45deg, #DD2080, #00DD88)1;
-    cursor: url("/kaatan/files/pointer.cur") 0 0, auto;
+    cursor: url("/files/pointer.cur") 0 0, auto;
 }
 
 body {

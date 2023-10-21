@@ -8,9 +8,9 @@
   <meta name="description" content="">
   <!--
   -->
-  <link rel="stylesheet" href="/kaatan/app/app.css">
-  <link rel="stylesheet" href="/kaatan/app/portrait.css">
-  <link rel="shortcut icon" href="/kaatan/files/ret_branco.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/app/app.css">
+  <link rel="stylesheet" href="/app/portrait.css">
+  <link rel="shortcut icon" href="/files/ret_branco.svg" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
   <title>Kaatan - 100% Brasileira</title>
 </head>
@@ -21,7 +21,7 @@
     <div id="splash-screen">
       <div>
         <h2 style="padding: 25px;">Em Breve: Kaatan Chat!</h2>
-        <img src="/kaatan/files/ret_branco.svg">
+        <img src="/files/ret_branco.svg">
       </div>
     </div>
   </div>
@@ -52,7 +52,7 @@
     let splashScreen = document.getElementById("splash-screen");
     splashScreen.onclick = () => {
       let som = new Audio();
-      som.src = "/kaatan/files/splash.mp3";
+      som.src = "/files/splash.mp3";
       som.volume = 0.5;
       som.play();
     }

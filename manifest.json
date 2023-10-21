@@ -16,7 +16,7 @@
   "background_color": "#303030",
   "screenshots": [
     {
-      "src": "/kaatan/files/ret_branco.svg"
+      "src": "/files/ret_branco.svg"
     }
   ],
   "features": [
@@ -27,19 +27,19 @@
   ],
   "icons": [
     {
-      "src": "/kaatan/files/logo128.png",
+      "src": "/files/logo128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/kaatan/files/logo256.png",
+      "src": "/files/logo256.png",
       "sizes": "256x256",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/kaatan/files/logo512.png",
+      "src": "/files/logo512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -53,19 +53,19 @@
       "url": "/",
       "icons": [
         {
-          "src": "/kaatan/files/logo128.png",
+          "src": "/files/logo128.png",
           "sizes": "128x128",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/kaatan/files/logo256.png",
+          "src": "/files/logo256.png",
           "sizes": "256x256",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/kaatan/files/logo512.png",
+          "src": "/files/logo512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "any"
@@ -79,19 +79,19 @@
       "url": "/perfil/",
       "icons": [
         {
-          "src": "/kaatan/files/logo128.png",
+          "src": "/files/logo128.png",
           "sizes": "128x128",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/kaatan/files/logo256.png",
+          "src": "/files/logo256.png",
           "sizes": "256x256",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/kaatan/files/logo512.png",
+          "src": "/files/logo512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "any"
@@ -105,19 +105,19 @@
       "url": "/contatos/",
       "icons": [
         {
-          "src": "/kaatan/files/logo128.png",
+          "src": "/files/logo128.png",
           "sizes": "128x128",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/kaatan/files/logo256.png",
+          "src": "/files/logo256.png",
           "sizes": "256x256",
           "type": "image/png",
           "purpose": "any"
         },
         {
-          "src": "/kaatan/files/logo512.png",
+          "src": "/files/logo512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "any"
