@@ -56,13 +56,6 @@
       });
     }
     addEventListener('contextmenu', e => e.preventDefault());
-    setInterval(e => {
-      if ((window.innerWidth * 0.8) > window.innerHeight) {
-        document.styleSheets[1].disabled = true;
-      } else {
-        document.styleSheets[1].disabled = false;
-      }
-    }, 999);
     let splashScreen = document.getElementById("splash-screen");
     splashScreen.onclick = () => {
       let som = new Audio();
