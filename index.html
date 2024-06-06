@@ -6,30 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Jorge Souza Oliveira dos Santos">
   <meta name="description" content="">
-  <!--
-  -->
+  <!-- ACÁCIA LIB -->
+  <link rel="stylesheet" href="acacia/acacia.css">
+  <script src="acacia/acacia.js"></script>
+
+  <!-- SCRIPTS -->
+  <script src="app/kaatan.js"></script>
   <link rel="stylesheet" href="/app/app.css">
-  <link rel="stylesheet" href="/app/portrait.css">
   <link rel="shortcut icon" href="/files/ret_branco.svg" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
   <title>Kaatan - 100% Brasileira</title>
 </head>
 
 <body>
-  <div id="left-bar"></div>
-  <div id="app">
-    <div id="splash-screen">
-      <div>
-        <h2 style="padding: 25px;">Em Breve: Kaatan Chat!</h2>
-        <img src="/files/ret_branco.svg">
-      </div>
-    </div>
+  <div id="top-bar">
+    <div id="kaatan-top-bar"></div>
   </div>
-  <div id="right-bar"></div>
+  <div id="app">
+    <grid-column id="left-bar"></grid-column>
+    <grid-column id="app-view"></grid-column>
+    <grid-column id="right-bar"></grid-column>
+  </div>
+  <div id="bottom-bar"></div>
+  <div id="splash-screen"></div>
 </body>
 
 </html>
+
+<script src="app/renderer.js"></script>
 <script>
+  // #kaatanjs001:
+  App.Main();
+  window.TOPBAR = document.getElementById("kaatan-top-bar");
+  window.APP = document.getElementById("app");
+  window.LEFTBAR = document.getElementById("left-bar");
+  window.APPVIEW = document.getElementById("app-view");
+  window.RIGHTBAR = document.getElementById("right-bar");
+  window.BOTTOMBAR = document.getElementById("bottom-bar");
+
   window.addEventListener('load', e => {
     // Check if service workers are supported
     if ('serviceWorker' in navigator) {
