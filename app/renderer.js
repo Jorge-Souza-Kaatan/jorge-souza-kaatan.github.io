@@ -45,6 +45,7 @@ const Renderer = {
         const classPage = await Renderer.Load("radio");
         window.APPVIEW.innerHTML = classPage;
         Renderer.Layout.MainTopBar();
+        APPVIEW.style.justifyContent = "center";
     },
     Ads: async () => {
         Modal.Message("Anúncios", `

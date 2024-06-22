@@ -1,7 +1,7 @@
 <grid-column class="posts-view class-page">
     <card-big class="no-elastic no-hover">
-        <text-subheading style="justify-content: flex-start;">Rádio Kaatan</text-subheading>
-        <text-subheading style="justify-content: flex-start;">Tocando os maiores sucessos nacionais de todos os tempos</text-subheading>
+        <text-subheading style="text-align: center;">Rádio Kaatan</text-paragraph>
+        <text-paragraph style="text-align: center;">Tocando os maiores sucessos nacionais de todos os tempos</text-subheading>
     </card-big>
     <horizontal-divider></horizontal-divider>
     <card-big class="no-elastic no-hover class-player">
