@@ -131,12 +131,12 @@
             <div class="home-btns">
                 <img src="/files/home/i04.svg" onclick="Renderer.Radio()">
                 <img src="/files/home/i06.svg" onclick="Renderer.News()">
-                <img src="/files/home/i01.svg" onclick="Renderer.Chat();">
-                <img src="/files/home/i02.svg" onclick="Renderer.ThreeD()">
-                <img src="/files/home/i03.svg" onclick="Renderer.Courses()">
-                <img src="/files/home/i05.svg" onclick="Renderer.ChatPlus()">
-                <img src="/files/home/i07.svg" onclick="Renderer.Ads()">
-                <img src="/files/home/i08.svg" onclick="Renderer.Help()">
+                <img src="/files/home/i01.svg" style="opacity: 0.66;" onclick="Renderer.Chat();">
+                <img src="/files/home/i02.svg" style="opacity: 0.66;" onclick="Renderer.ThreeD()">
+                <img src="/files/home/i03.svg" style="opacity: 0.66;" onclick="Renderer.Courses()">
+                <img src="/files/home/i05.svg" style="opacity: 0.66;" onclick="Renderer.ChatPlus()">
+                <img src="/files/home/i07.svg" style="opacity: 0.66;" onclick="Renderer.Ads()">
+                <img src="/files/home/i08.svg" style="opacity: 0.66;" onclick="Renderer.Help()">
             </div>
             <grid-column style="width: 90%;">
                 <text-paragraph style="text-align: center; font-size: 0.9em;">Pensamento do dia: <span id="quote"

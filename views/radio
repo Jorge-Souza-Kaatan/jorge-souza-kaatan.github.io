@@ -1,0 +1,10 @@
+<grid-column class="posts-view class-page">
+    <card-big class="no-elastic no-hover">
+        <text-subheading style="justify-content: flex-start;">Rádio Kaatan</text-subheading>
+        <text-subheading style="justify-content: flex-start;">Tocando os maiores sucessos nacionais de todos os tempos</text-subheading>
+    </card-big>
+    <horizontal-divider></horizontal-divider>
+    <card-big class="no-elastic no-hover class-player">
+        <iframe src="https://zeno.fm/player/radio-kaatan" width="768" height="600" frameborder="0" scrolling="no"></iframe><a href="https://zeno.fm/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;">Hospedada em Zeno FM</a>
+    </card-big>
+</grid-column>

@@ -41,11 +41,10 @@ const Renderer = {
         Renderer.Home();
     },
     Radio: async () => {
-        Modal.Message("Rádio Kaatan", `
-            Em breve você encontrará aqui:<br>
-            A nossa querida rádio com as melhores trilhas sonoras nacionais de todos os tempos! 
-        `);
-        Renderer.Home();
+        // Requisitar a autorização para a aula
+        const classPage = await Renderer.Load("class");
+        window.APPVIEW.innerHTML = classPage;
+        Renderer.Layout.MainTopBar();
     },
     Ads: async () => {
         Modal.Message("Anúncios", `
