@@ -107,10 +107,10 @@
             <span>
                 <img src="">
             </span>
-            <span class="titlebar-btn" onclick="Renderer.MyProfile()">
+            <span class="titlebar-btn">
                 <img src="/files/default.svg">
             </span>
-            <span class="titlebar-btn" onclick="Renderer.Notifications()">
+            <span class="titlebar-btn">
                 <img src="/files/notification.svg">
             </span>
         </grid-row>
@@ -129,12 +129,12 @@
                     user-select: none;
                     -webkit-user-drag: none;">
             <div class="home-btns">
+                <img src="/files/home/i04.svg" onclick="Renderer.Radio()">
+                <img src="/files/home/i06.svg" onclick="Renderer.News()">
                 <img src="/files/home/i01.svg" onclick="Renderer.Chat();">
                 <img src="/files/home/i02.svg" onclick="Renderer.ThreeD()">
                 <img src="/files/home/i03.svg" onclick="Renderer.Courses()">
-                <img src="/files/home/i04.svg" onclick="Renderer.Radio()">
                 <img src="/files/home/i05.svg" onclick="Renderer.ChatPlus()">
-                <img src="/files/home/i06.svg" onclick="Renderer.News()">
                 <img src="/files/home/i07.svg" onclick="Renderer.Ads()">
                 <img src="/files/home/i08.svg" onclick="Renderer.Help()">
             </div>
