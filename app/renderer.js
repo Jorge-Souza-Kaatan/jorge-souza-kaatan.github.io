@@ -42,7 +42,7 @@ const Renderer = {
     },
     Radio: async () => {
         // Requisitar a autorização para a aula
-        const classPage = await Renderer.Load("class");
+        const classPage = await Renderer.Load("radio");
         window.APPVIEW.innerHTML = classPage;
         Renderer.Layout.MainTopBar();
     },
