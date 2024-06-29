@@ -1,0 +1,17 @@
+<grid-column style="padding: 5px; gap: 5px;">
+    <card-big class="no-hover no-elastic">
+        <text-heading>
+            Blog
+        </text-heading>
+    </card-big>
+    <card-big class="no-hover no-elastic">
+        <text-paragraph>
+            Blog
+        </text-paragraph>
+    </card-big>
+</grid-column>
+<style>
+    text-paragraph {
+        text-indent: 50px;
+    }
+</style>

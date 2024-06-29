@@ -93,16 +93,16 @@ const Renderer = {
             }
         },
         Landscape: () => {
-            document.getElementById("app").style.gridTemplateColumns = "20vw 60vw 20vw";
-            document.getElementById("app-view").style.gridColumn = "2";
-            document.getElementById("left-bar").style.display = "flex";
-            document.getElementById("right-bar").style.display = "flex";
+            APP.style.gridTemplateColumns = "20vw 60vw 20vw";
+            APPVIEW.style.gridColumn = "2";
+            LEFTBAR.style.display = "flex";
+            RIGHTBAR.style.display = "flex";
         },
         Portrait: () => {
-            document.getElementById("app").style.gridTemplateColumns = "100vw";
-            document.getElementById("app-view").style.gridColumn = "1";
-            document.getElementById("left-bar").style.display = "none";
-            document.getElementById("right-bar").style.display = "none";
+            APP.style.gridTemplateColumns = "100vw";
+            APPVIEW.style.gridColumn = "1";
+            LEFTBAR.style.display = "none";
+            RIGHTBAR.style.display = "none";
         },
         ShowSideMenu: () => {
             alert("ShowSideMenu")

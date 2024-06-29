@@ -1,0 +1,24 @@
+<grid-column class="posts-view">
+    <card-big class="no-elastic no-hover">
+        <text-heading>Contato e suporte</text-heading>
+    </card-big>
+    <horizontal-divider></horizontal-divider>
+    <card-big class="no-elastic no-hover">
+        <text-paragraph>
+            Estamos ansiosos em te ouvir!
+        </text-paragraph>
+        <text-paragraph>
+            Se tiver alguma dúvida, sugestão, crítica ou elogio, ou se deseja reportar um erro que está enfrentando com
+            a aplicação, não hesite em entrar em contato, fique a vontade para nos enviar um email clicando no link abaixo:
+        </text-paragraph>
+        <button-squared onclick="window.open('mailto:fragatasoftware@outlook.com')">
+            Contato
+        </button-squared>
+
+    </card-big>
+</grid-column>
+<style>
+    .posts-view text-paragraph {
+        text-indent: 50px;
+    }
+</style>

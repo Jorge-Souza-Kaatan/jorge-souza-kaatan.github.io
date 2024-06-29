@@ -13,8 +13,25 @@ const App = {
             document.body.appendChild(container)
         });
     },
+    About: () => {
+        Renderer.Load("about").then(about => {
+            APPVIEW.innerHTML = about;
+        });
+    },
+    Support: () => {
+        Renderer.Load("support").then(support => {
+            APPVIEW.innerHTML = support;
+        });
+    },
+    Ads: () => {
+        Renderer.Load("ads").then(ads => {
+            APPVIEW.innerHTML = ads;
+        });
+    },
     News: () => {
-        //Renderer.Layout.Verify();
+        Renderer.Load("news").then(news => {
+            APPVIEW.innerHTML = news;
+        });
     },
     LOOP: () => {
         Renderer.Layout.Verify();

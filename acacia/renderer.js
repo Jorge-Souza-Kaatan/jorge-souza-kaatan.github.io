@@ -43,6 +43,8 @@ const Renderer = {
                     setInterval(Renderer.Layout.Verify, 999);
                 }, 999);
             });
+        } else {
+            if (callback != null) callback();
         }
     },
     DropFiles: async () => {
@@ -116,7 +118,6 @@ const Renderer = {
         IsPortraitLayout: true,
         ColorMyLayout: false,
         Verify: () => {
-            console.log(".")
             if (window.innerWidth > window.innerHeight) {
                 Renderer.Layout.Landscape();
             } else {

@@ -1,0 +1,26 @@
+<grid-column style="padding: 5px; gap: 5px;">
+    <card-big class="no-hover no-elastic">
+        <text-heading>
+            Anúncios
+        </text-heading>
+    </card-big>
+    <card-big class="no-hover no-elastic">
+        <text-paragraph>
+            Ficamos felizes em saber do seu interesse em anunciar em nossos aplicativos, mas ainda estamos recolhendo
+            as métricas de acesso e uso e, assim que elas estiverem disponíveis para um mecanismo de anúncios transparente
+            disponibilizaremos aqui. Retorne em breve.
+        </text-paragraph>
+        <text-paragraph>
+            Caso tenha interesse em saber mais ou deseje reservar este serviço a partir de agora você pode entrar em contato:
+        </text-paragraph>
+        <button-squared onclick="window.open('mailto:fragatasoftware@outlook.com')">Contato</button-squared>
+    </card-big>
+    <card-big class="no-hover no-elastic">
+        <button-squared onclick="window.location.pathname = '/'">Voltar</button-squared>
+    </card-big>
+</grid-column>
+<style>
+    text-paragraph {
+        text-indent: 50px;
+    }
+</style>
