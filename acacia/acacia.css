@@ -10,7 +10,21 @@
     --ForegroundElementHover: #303540;
     --ForegroundInvert: #DD2080;
     --Gradiente45: linear-gradient(45deg, #DD2080, #00DD88)1;
+    --SplashImage: url("/files/splash.svg");
     cursor: url("pointer.cur") 0 0, auto;
+}
+
+body {
+    background-color: var(--Background);
+    color: var(--Foreground);
+    font-size: 1rem;
+    font-family: 'Segoe UI', system-ui, 'Open Sans', Verdana, sans-serif;
+}
+
+body * {
+    box-sizing: border-box;
+    transition: all 250ms;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @font-face {
@@ -18,27 +32,304 @@
     src: url("Chisel Mark.ttf");
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--BackgroundElement);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--ForegroundElement);
+}
 
 /* #endregion */
+
+/* #region APP */
+acacia-app {
+    display: grid;
+    grid-template-rows: 30px calc(100vh - 70px) 40px;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+}
+
+app-top-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background-color: transparent;
+    border-bottom: var(--ForegroundElementHover) 1px solid;
+}
+
+app-top-bar #menu-icon {
+    padding: 0 7.5px 0 7.5px;
+    margin: 0;
+    height: 30px;
+    opacity: 0.66;
+    cursor: pointer;
+}
+
+app-top-bar #menu-icon:hover {
+    opacity: 1;
+}
+
+app-top-bar #topbar-logo {
+    margin: 0px;
+    height: 30px;
+    cursor: pointer;
+}
+
+app-top-bar icons-container {
+    height: 100%;
+    width: 100%;
+    gap: 5px;
+    display: grid;
+    justify-content: start;
+}
+
+app-bottom-bar {
+    background-color: transparent;
+    border-top: var(--ForegroundElementHover) 1px solid;
+}
+
+app-main {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 25vw 1fr 20vw;
+}
+
+app-view {
+    margin: 0;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    border-inline: var(--ForegroundElementHover) 1px solid;
+    overflow-y: scroll;
+}
+
+left-bar {
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+right-bar {
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+splash-screen {
+    background-image: var(--SplashImage);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: padding-box;
+    position: fixed;
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: var(--BackgroundElement);
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* #endregion */
+
+
+/* #region SIDE MENU */
+side-menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(15px);
+    z-index: 997;
+}
+
+side-menu side-menu-outside {
+    position: fixed;
+    height: 100%;
+    width: 75%;
+    max-width: calc(100% - 280px);
+    top: 0;
+    left: 0;
+}
+
+side-menu side-menu-container {
+    position: fixed;
+    display: flex;
+    padding: 5px;
+    gap: 5px;
+    min-width: 280px;
+    width: 25%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: var(--Background);
+    border-left: 1px solid var(--BackgroundElement);
+    box-shadow: 0 0 20px var(--Black);
+    animation: side-menu ease-out 300ms;
+    z-index: 997;
+}
+
+side-menu-items-container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+side-menu img {
+    user-select: none;
+    pointer-events: none;
+}
+
+side-menu title-bar {
+    display: grid;
+    align-content: center;
+    justify-content: end;
+}
+
+side-menu title-bar close-button {
+    padding: 10px 10px 10px 20px;
+    cursor: pointer;
+}
+
+side-menu title-bar img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    color: var(--Foreground);
+}
+
+side-menu side-menu-profile,
+side-menu side-menu-item {
+    display: grid;
+    align-content: center;
+}
+
+side-menu side-menu-profile {
+    grid-template-columns: 60px 1fr;
+    align-content: center;
+    padding: 5px;
+    gap: 5px;
+    cursor: pointer;
+    border-block: var(--ForegroundElementHover) 1px solid;
+}
+
+side-menu side-name {
+    display: grid;
+    /* color: var(--Foreground); */
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    user-select: none;
+    padding: 5px;
+}
+
+side-menu side-username {
+    display: grid;
+    /* color: var(--Foreground); */
+    text-align: left;
+    font-size: 0.8rem;
+    user-select: none;
+    padding: 5px;
+}
+
+side-menu side-menu-profile-pic {
+    height: 100%;
+    width: 60px;
+    display: grid;
+    align-content: center;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+side-menu side-menu-profile text-label {
+    text-align: center;
+}
+
+side-menu side-menu-profile img {
+    height: 60px;
+    margin: auto;
+}
+
+side-menu horizontal-divider {
+    background-color: var(--BackgroundElement);
+    margin: 0;
+}
+
+side-menu side-menu-item text-label {
+    font-size: 14pt;
+}
+
+side-menu side-menu-item {
+    height: 40px;
+    font-size: 18pt;
+    grid-template-columns: auto 1fr;
+    padding: 5px;
+    gap: 5px;
+}
+
+side-menu side-menu-item img {
+    height: 24px;
+    opacity: 0.66;
+    margin: auto;
+}
+
+side-menu side-menu-item:hover {
+    background-color: var(--BackgroundElementHover);
+}
+
+/* #endregion */
+
 
 /* #region CONTAINERS */
 acacia-container {
     background-color: #101520;
-    background-image: url("bck.svg");
+    background-image: url("background.svg");
     background-repeat: repeat;
     background-size: 100px;
     width: 100vw;
     height: 100vh;
     margin: 0;
     top: 0;
+    left: 0;
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: auto;
-    left: 0;
-    z-index: 1000;
+    z-index: 997;
 }
 
 grid-row {
@@ -276,7 +567,7 @@ toast-mini {
 
 /* #endregion _text */
 
-/* #region INPUTS */
+/* #region FORMS */
 .kaatan-input {
     background-color: var(--Background);
     color: var(--ForegroundElement);
@@ -332,21 +623,23 @@ toast-mini {
 /* #endregion _inputs */
 
 /* #region MODAL  */
-.modal-container {
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    position: fixed;
-    display: grid;
-    place-items: center;
-    overflow: auto;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-}
 
+#modal-container {
+    background-color: #10152044;
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    z-index: 997;
+}
 #modal-box {
     background-color: var(--BackgroundElement);
     color: var(--Foreground);
@@ -367,16 +660,10 @@ toast-mini {
 #modal-window {
     background-color: var(--BackgroundElement);
     color: var(--Foreground);
-    position: relative;
     width: 90vw;
     height: 90vh;
     border: 2px solid;
     border-image: var(--Gradiente45)1;
-    border-radius: 5px !important;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    place-items: center;
     padding: 15px;
     gap: 10px;
     margin: 0;
@@ -387,19 +674,18 @@ toast-mini {
 }
 
 #modal-close {
-    position: absolute;
     display: grid;
-    place-items: center;
     top: 0;
     right: 0;
     height: 50px;
     width: 50px;
     color: var(--Foreground);
     float: right;
-    text-align: right;
     font-size: 24pt;
     font-weight: bolder;
     padding: 5px;
+    justify-content: center;
+    align-content: center;
     cursor: pointer;
 }
 
@@ -457,6 +743,45 @@ toast-mini {
 }
 
 /* #endregion _modal */
+
+/* #region LISTS */
+/* Accordion */
+kaatan-accordion {
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100vh - 30px);
+    margin: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+accordion-title {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    color: var(--ForegroundElement);
+    background-color: var(--Background);
+    padding: 10px;
+    margin: 0 0 0 10px;
+}
+
+accordion-title:hover {
+    background-color: var(--BackgroundElementHover);
+}
+
+accordion-content {
+    padding: 10px;
+    width: 100%;
+    color: var(--Foreground);
+    background-color: var(--BackgroundElement);
+    box-sizing: border-box;
+}
+
+/* #endregion */
+
+/* #region TABLES */
+/* #endregion */
 
 /* #region DATA-GRID  */
 data-grid-head input[type=checkbox],
@@ -735,54 +1060,6 @@ data-grid {
     }
 }
 
-/* #endregion */
-
-
-/* #region ACCORDION */
-kaatan-accordion {
-    display: block;
-    width: calc(100% - 10px);
-    height: calc(100vh - 30px);
-    margin: 5px;
-    border-radius: 5px;
-    background-color: transparent;
-    box-sizing: border-box;
-}
-
-accordion-title {
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    color: var(--ForegroundElement);
-    background-color: var(--Background);
-    padding: 10px;
-    margin: 0 0 0 10px;
-}
-
-accordion-title:hover {
-    background-color: var(--BackgroundElementHover);
-}
-
-accordion-content {
-    padding: 10px;
-    width: 100%;
-    color: var(--Foreground);
-    background-color: var(--BackgroundElement);
-    box-sizing: border-box;
-}
-
-/* #endregion */
-
-
-/* #region */
-/* #endregion */
-
-
-/* #region */
-/* #endregion */
-
-
-/* #region */
 /* #endregion */
 
 /*********************************************

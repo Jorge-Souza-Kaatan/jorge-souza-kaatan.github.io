@@ -6,73 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Jorge Souza Oliveira dos Santos">
   <meta name="description" content="">
-  <!-- ACÁCIA LIB -->
-  <link rel="stylesheet" href="acacia/acacia.css">
-  <script src="acacia/acacia.js"></script>
 
   <!-- SCRIPTS -->
-  <script src="app/kaatan.js"></script>
+  <script src="/app/kaatan.js"></script>
+  <script src="/acacia/acacia.js"></script>
+  <script src="/acacia/content.js"></script>
+  <script src="/acacia/renderer.js"></script>
+  <!-- STYLES -->
   <link rel="stylesheet" href="/app/app.css">
+  <link rel="stylesheet" href="/acacia/acacia.css">
+  <!-- PWA -->
   <link rel="shortcut icon" href="/files/ret_branco.svg" type="image/x-icon">
-  <link rel="manifest" href="manifest.json">
-  <title>Kaatan - 100% Brasileira</title>
+  <title></title>
 </head>
 
-<body>
-  <div id="top-bar">
-    <div id="kaatan-top-bar"></div>
-  </div>
-  <div id="app">
-    <grid-column id="left-bar"></grid-column>
-    <grid-column id="app-view"></grid-column>
-    <grid-column id="right-bar"></grid-column>
-  </div>
-  <div id="bottom-bar"></div>
-  <div id="splash-screen"></div>
-</body>
+<body></body>
 
 </html>
 
-<script src="app/renderer.js"></script>
 <script>
-  // #kaatanjs001:
-  App.Main();
-  window.TOPBAR = document.getElementById("kaatan-top-bar");
-  window.APP = document.getElementById("app");
-  window.LEFTBAR = document.getElementById("left-bar");
-  window.APPVIEW = document.getElementById("app-view");
-  window.RIGHTBAR = document.getElementById("right-bar");
-  window.BOTTOMBAR = document.getElementById("bottom-bar");
-
-  window.addEventListener('load', e => {
-    // Check if service workers are supported
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function (registration) {
-        // Registration was successful :)
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function (err) {
-        // Registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
-    }
-    addEventListener('contextmenu', e => e.preventDefault());
-    let splashScreen = document.getElementById("splash-screen");
-    splashScreen.onclick = () => {
-      let som = new Audio();
-      som.src = "/files/splash.mp3";
-      som.volume = 0.5;
-      som.play();
-    }
-    //playAudio();
-    setTimeout(() => {
-      let KaatanConsoleBrand = `
+  let KaatanConsoleBrand = `
 ██   ██  █████   █████  ████████  █████  ███    ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ████   ██
 █████   ███████ ███████    ██    ███████ ██ ██  ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ██  ██ ██
 ██   ██ ██   ██ ██   ██    ██    ██   ██ ██   ████
-        `;
-      console.log(KaatanConsoleBrand);
-    }, 2998);
-  });
+    `;
+  console.log(KaatanConsoleBrand);
+
+  App.Main(App.Home);
 </script>

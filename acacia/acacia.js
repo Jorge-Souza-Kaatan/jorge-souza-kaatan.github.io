@@ -1,5 +1,92 @@
-/* Este arquivo fornece os componentes para renderização da interface */
+//#region Id Control
+const IdControl = {
+    Elements: [],
+    Id: {
+        AcaciaContainer: 0,
+        Tooltip: 0,
+        ContextMenu: 0,
+        Popover: 0,
+        Toast: 0,
+        DataGrid: 0,
+        Modal: 0
+    },
+    Type: {
+        AcaciaContainer: "ac",
+        Tooltip: "tt",
+        Context: "cm",
+        ProfilePopover: "pp",
+        Toast: "ts",
+        DataGrid: "dg",
+        Modal: "md"
+    },
+    NextId: (type) => {
+        return `${type}-${++IdControl.Id[type]}`;
+    }
+}
+//#endregion
+
 //#region CLASS DEFINITIONS
+class AcaciaApp extends HTMLElement {
+    constructor() {
+        super();
+    }
+    connectedCallback() {
+        const head = document.querySelector("head");
+        const acaciaCSS = document.createElement("style");
+        acaciaCSS.setAttribute("rel", "stylesheet");
+        acaciaCSS.setAttribute("href", "/acacia/acacia.css");
+        head.appendChild(acaciaCSS);
+
+        const acaciaApp = this;
+        const topBar = document.createElement("app-top-bar");
+        topBar.id = "top-bar";
+        const topBarMenuIcon = document.createElement("img");
+        topBarMenuIcon.id = "menu-icon";
+        topBarMenuIcon.onclick = Renderer.SideMenu.Show;
+        topBarMenuIcon.src = "/files/menu.svg";
+        const topBarIconsContainer = document.createElement("icons-container");
+        const topBarLogo = document.createElement("img");
+        topBarLogo.src = "/files/conjunto_branco.svg"
+        topBarLogo.id = "topbar-logo";
+        topBarLogo.onclick = async () => window.location.pathname = "/";
+        topBarIconsContainer.appendChild(topBarLogo);
+        topBar.appendChild(topBarIconsContainer);
+        topBar.appendChild(topBarMenuIcon);
+        acaciaApp.appendChild(topBar);
+        //
+        const app = document.createElement("app-main");
+        app.id = "app";
+        const bottomBar = document.createElement("app-bottom-bar");
+        bottomBar.id = "bottom-bar";
+        acaciaApp.appendChild(app);
+        acaciaApp.appendChild(bottomBar);
+
+        const leftBar = document.createElement("left-bar");
+        leftBar.id = "left-bar";
+        const rightBar = document.createElement("right-bar");
+        rightBar.id = "right-bar";
+        const appView = document.createElement("app-view");
+        appView.id = "app-view";
+        if (window.location.pathname == "/") {
+            const splash = document.createElement("splash-screen");
+            splash.id = "splash-screen";
+            acaciaApp.appendChild(splash);
+        }
+
+        app.appendChild(leftBar);
+        app.appendChild(appView);
+        app.appendChild(rightBar);
+
+        window.ACACIA = acaciaApp;
+        window.APP = app;
+        window.BOTTOMBAR = bottomBar;
+        window.TOPBAR = topBarIconsContainer;
+        window.LEFTBAR = leftBar;
+        window.RIGHTBAR = rightBar;
+        window.APPVIEW = appView;
+    }
+} customElements.define("acacia-app", AcaciaApp);
+
 class Accordion extends HTMLElement {
     constructor() {
         super();
@@ -264,7 +351,7 @@ const Tooltip = {
         element.addEventListener('mouseout', () => { try { document.body.removeChild(tooltip) } catch { } });
     },
     Toast: (txt, close) => {
-        if (document.getElementById("toast-mini")) document.body.removeChild(document.getElementById("toast-mini"));
+        try { document.body.removeChild(document.getElementById("toast-mini")) } catch { };
         let off = document.createElement("toast-mini");
         off.id = "toast-mini";
         off.innerHTML = txt;
@@ -277,9 +364,11 @@ const Tooltip = {
 //#region MODAL
 const Modal = {
     modalId: 0,
-    ESCKey: (e, id) => {
+    callback: null,
+    ESCKey: (e) => {
         if (e.key == "Escape") {
-            Modal.Close(id);
+            Modal.Close(Modal.modalId);
+            if (Modal.callback != null) Modal.callback();
         }
     },
     Close: (id) => {
@@ -287,166 +376,177 @@ const Modal = {
             //let el = document.getElementById("modal-container");
             let el = document.querySelector(`[modal-id=${id}]`);
             document.body.removeChild(el);
-            window.removeEventListener("keydown", e => Modal.ESCKey(e, id));
+            window.removeEventListener("keydown", Modal.ESCKey);
             Modal.modalId--;
         } catch (e) { }
     },
 
-    Waiting: (title, msg) => {
-        let modal = document.createElement("div");
-        modal.setAttribute("class", "modal-container");
-        let id = `modal-id-${Modal.modalId}`;
-        modal.setAttribute("modal-id", id);
-        Modal.modalId++;
+    Waiting: (title, msg, callback = null) => {
+        return new Promise(resolve => {
+            let modal = document.createElement("div");
+            modal.setAttribute("class", "modal-container");
+            let id = `modal-id-${++Modal.modalId}`;
+            modal.setAttribute("modal-id", id);
 
-        modal.id = "modal-container";
-        let box = document.createElement("div");
-        box.id = "modal-box";
-        modal.appendChild(box);
+            modal.id = "modal-container";
+            let box = document.createElement("div");
+            box.id = "modal-box";
+            modal.appendChild(box);
 
-        let close = document.createElement("span");
-        close.id = "modal-close";
-        close.innerHTML = "&times;";
-        close.onclick = () => Modal.Close(id);
-        box.appendChild(close);
+            let close = document.createElement("span");
+            close.id = "modal-close";
+            close.innerHTML = "&times;";
+            close.onclick = () => {
+                Modal.Close(id);
+                resolve(false);
+                if (callback != null) callback();
+            };
+            box.appendChild(close);
 
-        let h1 = document.createElement("h1");
-        h1.id = "modal-title";
-        h1.innerHTML = title;
-        box.appendChild(h1);
+            let h1 = document.createElement("h1");
+            h1.id = "modal-title";
+            h1.innerHTML = title;
+            box.appendChild(h1);
 
-        let anm = document.createElement("div");
-        anm.id = "animation-container";
-        let img = document.createElement("img");
-        img.setAttribute("src", "loading.svg");
-        anm.appendChild(img);
-        box.appendChild(anm);
+            let anm = document.createElement("div");
+            anm.id = "animation-container";
+            let img = document.createElement("img");
+            img.setAttribute("src", "/acacia/loading.svg");
+            anm.appendChild(img);
+            box.appendChild(anm);
 
-        let p = document.createElement("p");
-        p.id = "modal-content";
-        p.setAttribute("style", "text-align: center; text-indent: 0;");
-        p.innerHTML = msg;
-        box.appendChild(p);
-        document.body.appendChild(modal);
+            let p = document.createElement("p");
+            p.id = "modal-content";
+            p.setAttribute("style", "text-align: center; text-indent: 0;");
+            p.innerHTML = msg;
+            box.appendChild(p);
+            document.body.appendChild(modal);
 
-        window.addEventListener("keydown", e => Modal.ESCKey(e, id));
+            window.addEventListener("keydown", Modal.ESCKey);
+        });
     },
 
-    Message: (title, msg) => {
-        let modal = document.createElement("div");
-        modal.setAttribute("class", "modal-container");
-        modal.id = "modal-container";
-        let id = `modal-id-${Modal.modalId}`;
-        modal.setAttribute("modal-id", id);
-        Modal.modalId++;
-
-        let modalBox = document.createElement("div");
-        modalBox.setAttribute("id", "modal-box");
-
-        let modalTitle = document.createElement("h1");
-        modalTitle.setAttribute("id", "modal-title");
-        modalTitle.innerHTML = title;
-
-        let modalContent = document.createElement("p");
-        modalContent.setAttribute("id", "modal-content");
-        modalContent.innerHTML = msg;
-
-        let modalButtonsContainer = document.createElement("div");
-        modalButtonsContainer.setAttribute("id", "modal-buttons-container");
-
-        let confirmButton = document.createElement("button-squared");
-        confirmButton.onclick = () => {
-            Modal.Close(id);
-        };
-        confirmButton.innerHTML = "Confirmar";
-
-        let span = document.createElement("span");
-
-        modalButtonsContainer.appendChild(span);
-        modalButtonsContainer.appendChild(confirmButton);
-
-        modalBox.appendChild(modalTitle);
-        modalBox.appendChild(modalContent);
-        modalBox.appendChild(modalButtonsContainer);
-
-        modal.appendChild(modalBox);
-
-        document.body.appendChild(modal);
-        window.addEventListener("keydown", e => Modal.ESCKey(e, id));
-    },
-
-    Error: (title, msg, fatal) => {
-        let modal = document.createElement("div");
-        modal.setAttribute("class", "modal-container");
-        modal.id = "modal-container";
-        let id = `modal-id-${Modal.modalId}`;
-        modal.setAttribute("modal-id", id);
-        Modal.modalId++;
-
-        let modalBox = document.createElement("div");
-        modalBox.setAttribute("id", "modal-box");
-
-        let modalClose = document.createElement("span");
-        modalClose.setAttribute("id", "modal-close");
-        modalClose.innerHTML = "&times;";
-        modalClose.onclick = () => Modal.Close(id);
-
-        let modalTitle = document.createElement("h1");
-        modalTitle.setAttribute("id", "modal-title");
-        modalTitle.innerHTML = title;
-
-        let animationContainer = document.createElement("div");
-        animationContainer.setAttribute("id", "animation-container");
-
-        let img = document.createElement("img");
-        img.setAttribute("src", "erro.svg");
-
-        animationContainer.appendChild(img);
-
-        let modalContent = document.createElement("p");
-        modalContent.setAttribute("id", "modal-content");
-        modalContent.setAttribute("style", "text-align: center; text-indent: 0;");
-        modalContent.innerHTML = msg;
-
-        let modalButtonsContainer = document.createElement("div");
-        modalButtonsContainer.setAttribute("id", "modal-buttons-container");
-
-        let backButton = document.createElement("button-squared");
-        backButton.onclick = () => Modal.Close(id);
-        backButton.innerHTML = "Voltar";
-
-        let closeButton = document.createElement("button-squared");
-        if (fatal) {
-            closeButton.onclick = window.close;
-            closeButton.innerHTML = "Encerrar aplicação";
-        } else {
-            closeButton.onclick = () => window.location.reload();
-            closeButton.innerHTML = "Reiniciar aplicação";
-        }
-
-        modalButtonsContainer.appendChild(backButton);
-        modalButtonsContainer.appendChild(closeButton);
-
-        modalBox.appendChild(modalClose);
-        modalBox.appendChild(modalTitle);
-        modalBox.appendChild(animationContainer);
-        modalBox.appendChild(modalContent);
-        modalBox.appendChild(modalButtonsContainer);
-
-        modal.appendChild(modalBox);
-
-        document.body.appendChild(modal);
-        window.addEventListener("keydown", e => Modal.ESCKey(e, id));
-    },
-
-    Confirm: (title, msg) => {
+    Message: (title, msg, callback = null) => {
         return new Promise(resolve => {
             let modal = document.createElement("div");
             modal.setAttribute("class", "modal-container");
             modal.id = "modal-container";
-            let id = `modal-id-${Modal.modalId}`;
+            let id = `modal-id-${++Modal.modalId}`;
             modal.setAttribute("modal-id", id);
-            Modal.modalId++;
+
+            let modalBox = document.createElement("div");
+            modalBox.setAttribute("id", "modal-box");
+
+            let modalTitle = document.createElement("h1");
+            modalTitle.setAttribute("id", "modal-title");
+            modalTitle.innerHTML = title;
+
+            let modalContent = document.createElement("p");
+            modalContent.setAttribute("id", "modal-content");
+            modalContent.innerHTML = msg;
+
+            let modalButtonsContainer = document.createElement("div");
+            modalButtonsContainer.setAttribute("id", "modal-buttons-container");
+
+            let confirmButton = document.createElement("button-squared");
+            confirmButton.onclick = () => {
+                Modal.Close(id);
+                resolve(true);
+                if (callback != null) callback();
+            };
+            confirmButton.innerHTML = "Confirmar";
+
+            let span = document.createElement("span");
+
+            modalButtonsContainer.appendChild(span);
+            modalButtonsContainer.appendChild(confirmButton);
+
+            modalBox.appendChild(modalTitle);
+            modalBox.appendChild(modalContent);
+            modalBox.appendChild(modalButtonsContainer);
+
+            modal.appendChild(modalBox);
+
+            document.body.appendChild(modal);
+            window.addEventListener("keydown", Modal.ESCKey);
+        });
+    },
+
+    Error: (title, msg, fatal, callback = null) => {
+        return new Promise(resolve => {
+            let modal = document.createElement("div");
+            modal.setAttribute("class", "modal-container");
+            modal.id = "modal-container";
+            let id = `modal-id-${++Modal.modalId}`;
+            modal.setAttribute("modal-id", id);
+
+            let modalBox = document.createElement("div");
+            modalBox.setAttribute("id", "modal-box");
+
+            let modalClose = document.createElement("span");
+            modalClose.setAttribute("id", "modal-close");
+            modalClose.innerHTML = "&times;";
+            modalClose.onclick = () => Modal.Close(id);
+
+            let modalTitle = document.createElement("h1");
+            modalTitle.setAttribute("id", "modal-title");
+            modalTitle.innerHTML = title;
+
+            let animationContainer = document.createElement("div");
+            animationContainer.setAttribute("id", "animation-container");
+
+            let img = document.createElement("img");
+            img.setAttribute("src", "/acacia/erro.svg");
+
+            animationContainer.appendChild(img);
+
+            let modalContent = document.createElement("p");
+            modalContent.setAttribute("id", "modal-content");
+            modalContent.setAttribute("style", "text-align: center; text-indent: 0;");
+            modalContent.innerHTML = msg;
+
+            let modalButtonsContainer = document.createElement("div");
+            modalButtonsContainer.setAttribute("id", "modal-buttons-container");
+
+            let backButton = document.createElement("button-squared");
+            backButton.onclick = () => {
+                Modal.Close(id);
+                resolve(true);
+                if (callback != null) callback();
+            };
+            backButton.innerHTML = "Voltar";
+
+            let closeButton = document.createElement("button-squared");
+            if (fatal) {
+                closeButton.onclick = () => window.location.reload();
+                closeButton.innerHTML = "Reiniciar aplicação";
+            } else {
+                closeButton.innerHTML = "Cancelar";
+            }
+
+            modalButtonsContainer.appendChild(backButton);
+            modalButtonsContainer.appendChild(closeButton);
+
+            modalBox.appendChild(modalClose);
+            modalBox.appendChild(modalTitle);
+            modalBox.appendChild(animationContainer);
+            modalBox.appendChild(modalContent);
+            modalBox.appendChild(modalButtonsContainer);
+
+            modal.appendChild(modalBox);
+
+            document.body.appendChild(modal);
+            window.addEventListener("keydown", Modal.ESCKey);
+        });
+    },
+    /** @description The action callback is always called */
+    Confirm: (title, msg, callback = null) => {
+        return new Promise(resolve => {
+            let modal = document.createElement("div");
+            modal.setAttribute("class", "modal-container");
+            modal.id = "modal-container";
+            let id = `modal-id-${++Modal.modalId}`;
+            modal.setAttribute("modal-id", id);
 
             let modalBox = document.createElement("div");
             modalBox.setAttribute("id", "modal-box");
@@ -466,6 +566,60 @@ const Modal = {
             confirmButton.onclick = async () => {
                 Modal.Close(id);
                 resolve(true);
+                if (callback != null) callback();
+            };
+            confirmButton.innerHTML = "Confirmar";
+
+            let cancelButton = document.createElement("button-squared");
+            cancelButton.onclick = async () => {
+                Modal.Close(id);
+                resolve(false);
+                if (callback != null) callback();
+            };
+            cancelButton.innerHTML = "Cancelar";
+
+            modalButtonsContainer.appendChild(confirmButton);
+            modalButtonsContainer.appendChild(cancelButton);
+
+            modalBox.appendChild(modalTitle);
+            modalBox.appendChild(modalContent);
+            modalBox.appendChild(modalButtonsContainer);
+
+            modal.appendChild(modalBox);
+
+            document.body.appendChild(modal);
+
+            window.addEventListener("keydown", Modal.ESCKey);
+        });
+    },
+    /** @description The action callback is only called if the user confirms */
+    ConfirmAction: (title, msg, callback = null) => {
+        return new Promise(resolve => {
+            let modal = document.createElement("div");
+            modal.setAttribute("class", "modal-container");
+            modal.id = "modal-container";
+            let id = `modal-id-${++Modal.modalId}`;
+            modal.setAttribute("modal-id", id);
+
+            let modalBox = document.createElement("div");
+            modalBox.setAttribute("id", "modal-box");
+
+            let modalTitle = document.createElement("h1");
+            modalTitle.setAttribute("id", "modal-title");
+            modalTitle.innerHTML = title;
+
+            let modalContent = document.createElement("p");
+            modalContent.setAttribute("id", "modal-content");
+            modalContent.innerHTML = msg;
+
+            let modalButtonsContainer = document.createElement("div");
+            modalButtonsContainer.setAttribute("id", "modal-buttons-container");
+
+            let confirmButton = document.createElement("button-squared");
+            confirmButton.onclick = async () => {
+                Modal.Close(id);
+                resolve(true);
+                if (callback != null) callback();
             };
             confirmButton.innerHTML = "Confirmar";
 
@@ -487,18 +641,17 @@ const Modal = {
 
             document.body.appendChild(modal);
 
-            window.addEventListener("keydown", e => Modal.ESCKey(e, id));
+            window.addEventListener("keydown", Modal.ESCKey);
         });
     },
 
-    Input: (title, msg) => {
+    Input: (title, msg, callback = null) => {
         return new Promise((resolve, reject) => {
             let modal = document.createElement("div");
             modal.setAttribute("class", "modal-container");
             modal.id = "modal-container";
-            let id = `modal-id-${Modal.modalId}`;
+            let id = `modal-id-${++Modal.modalId}`;
             modal.setAttribute("modal-id", id);
-            Modal.modalId++;
 
             let modalBox = document.createElement("div");
             modalBox.setAttribute("id", "modal-box");
@@ -519,6 +672,7 @@ const Modal = {
                 let res = modalInput.value;
                 Modal.Close(id);
                 resolve(res);
+                if (callback != null) callback();
             };
             confirmButton.innerHTML = "Confirmar";
 
@@ -526,6 +680,7 @@ const Modal = {
             cancelButton.onclick = async () => {
                 Modal.Close(id);
                 resolve("");
+                if (callback != null) callback();
             };
             cancelButton.innerHTML = "Cancelar";
 
@@ -544,44 +699,54 @@ const Modal = {
 
             document.body.appendChild(modal);
 
-            
-            modalInput.addEventListener("keydown", async (e) => {
+            window.addEventListener("keydown", Modal.ESCKey);
+            function resolveInput(e) {
                 if (e.key == "Enter") {
                     Modal.Close(id);
                     resolve(modalInput.value);
+                    if (callback != null) callback();
+                    window.removeEventListener("keydown", resolveInput);
                 }
-            });
-            window.addEventListener("keydown", e => Modal.ESCKey(e, id));
+            }
+            window.addEventListener("keydown", resolveInput);
             modalInput.focus();
         });
     },
-    Window: (title, content = document.createElement("grid-column")) => {
-        let modal = document.createElement("div");
-        modal.setAttribute("class", "modal-container");
+    Window: (title, content) => {
+        let modal = document.createElement("acacia-container");
         modal.id = "modal-container";
-        let id = `modal-id-${Modal.modalId}`;
+        let id = `modal-id-${++Modal.modalId}`;
         modal.setAttribute("modal-id", id);
-        Modal.modalId++;
 
-        let modalWnd = document.createElement("div");
+        let modalWnd = document.createElement("grid-column");
         modalWnd.setAttribute("id", "modal-window");
+
+        let modalTitleBar = document.createElement("span");
+        modalTitleBar.style.display = "grid";
+        modalTitleBar.style.gridTemplateColumns = "1fr auto";
+        modalTitleBar.style.alignItems = "center";
+        modalTitleBar.style.width = "100%";
 
         let close = document.createElement("span");
         close.id = "modal-close";
         close.innerHTML = "&times;";
         close.onclick = () => Modal.Close(id);
-        modalWnd.appendChild(close);
 
-        let modalTitle = document.createElement("h1");
+        let modalTitle = document.createElement("text-subheading");
         modalTitle.setAttribute("id", "modal-title");
         modalTitle.innerHTML = title;
         modalWnd.appendChild(modalTitle);
-        modalWnd.appendChild(content);
+        modalTitleBar.appendChild(modalTitle);
+        modalTitleBar.appendChild(close);
+        modalWnd.appendChild(modalTitleBar);
+        let contentElement = document.createElement("grid-column");
+        contentElement.innerHTML = content;
+        modalWnd.appendChild(contentElement);
 
         modal.appendChild(modalWnd);
 
         document.body.appendChild(modal);
-        window.addEventListener("keydown", e => Modal.ESCKey(e, id));
+        window.addEventListener("keydown", Modal.ESCKey);
     }
 }
 //#endregion
@@ -729,3 +894,20 @@ const DataGrid = {
     }
 }
 //#endregion
+
+class Acacia {
+    SideMenuContent;
+    constructor(appName = "Acácia App", acceptDrop = false, hideBottomBar = false, sideMenuContent = null, callback = null) {
+        this.SideMenuContent = sideMenuContent || null;
+        const head = document.querySelector("head");
+        head.querySelector("title").innerText = appName;
+        document.body.appendChild(document.createElement("acacia-app"));
+        window.SideMenuContent = this.SideMenuContent;
+        Renderer.Home(acceptDrop, hideBottomBar, callback);
+    }
+}
+
+window.Modal = Modal;
+window.Tooltip = Tooltip;
+window.DataGrid = DataGrid;
+window.IdControl = IdControl;

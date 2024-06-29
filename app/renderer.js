@@ -22,7 +22,6 @@ const Renderer = {
             Em breve você encontrará aqui:<br>
             Uma aplicação de comunicação por texto, voz, vídeo e chamada completa com salas de bate-papo, postagens, contatos e muito mais!
         `);
-        Renderer.Home();
     },
     ThreeD: async () => {
         Modal.Message("Mundo Kaatan", `
@@ -30,7 +29,6 @@ const Renderer = {
             Um mundo virtual com salas 3D para você montar seu avatar, se divertir e conhecer gente nova.
             Uma aplicação de renderização 3D em tempo real para você testar seus modelos e cenários.
         `);
-        Renderer.Home();
     },
     Courses: async () => {
         Modal.Message("Kaatan Cursos", `
@@ -38,7 +36,6 @@ const Renderer = {
             Uma plataforma de cursos online no setor de tecnologia onde você poderá aprender sua próxima profissão
             ou descobrir um hobbie novo.
         `);
-        Renderer.Home();
     },
     Radio: async () => {
         // Requisitar a autorização para a aula
@@ -52,42 +49,36 @@ const Renderer = {
             Em breve você encontrará aqui:<br>
             Um sistema de anúncios simplificado para que você divulgue sua marca em nossos serviços.
         `);
-        Renderer.Home();
     },
     MyProfile: async () => {
         Modal.Message("Meu Perfil", `
             Em breve você encontrará aqui:<br>
             Crie, edite ou atualize seu perfil em nossa plataforma.
         `);
-        Renderer.Home();
     },
     Notifications: async () => {
         Modal.Message("Notificações", `
             Em breve você encontrará aqui:<br>
             Visualize as notificações e atualizações mais importantes que você recebeu recentemente em nossa plataforma.
         `);
-        Renderer.Home();
     },
     News: async () => {
         Modal.Message("Blog Kaatan", `
             Em breve você encontrará aqui:<br>
             As últimas novidades sobre os nossos serviços você encontra aqui.
         `);
-        Renderer.Home();
     },
     ChatPlus: async () => {
         Modal.Message("Kaatan Chat+", `
             Em breve você encontrará aqui:<br>
             Uma aplicação de chat corporativo, profissional e elegante para sua equipe.
         `);
-        Renderer.Home();
     },
     Help: async () => {
         Modal.Message("Ajuda", `
             Em breve você encontrará aqui:<br>
             Aprenda como nossos serviços funcionam e encontre suporte.
         `);
-        Renderer.Home();
     },
     //#endregion
 

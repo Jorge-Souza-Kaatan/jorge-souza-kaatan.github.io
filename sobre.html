@@ -39,47 +39,27 @@
       {
         LinkTile: "Início",
         LinkIcon: "/files/home.svg",
-        LinkAction: () => App.Main()
+        LinkAction: () => window.location.pathname = "/"
       },
       {
         LinkTile: "Sobre",
         LinkIcon: "/files/info.svg",
-        LinkAction: () => App.About()
-      },
-      {
-        LinkTile: "Diretrizes",
-        LinkIcon: "/files/notes.svg",
-        LinkAction: () => App.Rules()
-      },
-      {
-        LinkTile: "Inclusão de trilha",
-        LinkIcon: "/files/plus.svg",
-        LinkAction: () => App.AddTrackRequest()
-      },
-      {
-        LinkTile: "Remoção de trilha",
-        LinkIcon: "/files/delete.svg",
-        LinkAction: () => App.RemoveTrackRequest()
-      },
-      {
-        LinkTile: "Termos de uso",
-        LinkIcon: "/files/home.svg",
-        LinkAction: () => App.Terms()
+        LinkAction: () => window.location.pathname = "/sobre.html"
       },
       {
         LinkTile: "Contato e suporte",
         LinkIcon: "/files/help-icon.svg",
-        LinkAction: () => App.Support()
+        LinkAction: () => window.location.pathname = "/suporte.html"
       },
       {
         LinkTile: "Blog",
         LinkIcon: "/files/news.svg",
-        LinkAction: () => window.open('https://www.kaatan.com.br/news')
+        LinkAction: () => window.location.pathname = "/news.html"
       },
       {
         LinkTile: "Anúncio",
         LinkIcon: "/files/megaphone-speaker-svgrepo-com.svg",
-        LinkAction: () => window.open('https://www.kaatan.com.br/anuncio')
+        LinkAction: () => window.location.pathname = "/anuncio.html"
       }
     ],
     ShowProfileSection: false,
@@ -92,5 +72,5 @@
 
   }
 
-  const acacia = new Acacia("Anúncio | Kaatan - 100% Brasileira", false, true, sideMenu, App.Main);
+  const acacia = new Acacia("Sobre | Kaatan - 100% Brasileira", false, true, sideMenu, App.Main);
 </script>
