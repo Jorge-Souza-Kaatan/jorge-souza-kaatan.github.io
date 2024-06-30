@@ -4,6 +4,7 @@
             Blog
         </text-heading>
     </card-big>
+    <horizontal-divider></horizontal-divider>
     <card-big class="no-hover no-elastic">
         <text-paragraph>
             Blog

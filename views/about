@@ -4,6 +4,7 @@
             Sobre
         </text-heading>
     </card-big>
+    <horizontal-divider></horizontal-divider>
     <card-big class="no-hover no-elastic">
         <text-paragraph>
             A Rede Kaatan é uma plataforma interconectada de aplicações que só cresce. Dentre nossas aplicações encontram-se serviços, comunicação, aprendizagem e muito mais.
@@ -82,11 +83,8 @@
             informática básica e programação e desenvolvimento web. Além de escritor nas horas vagas e um
             <i>protopolímata inveterado</i>. Se quiser saber um pouco mais de mim visite:
         </text-paragraph>
+        </card-big>
         <text-label onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
-        
-        <text-paragraph>
-        </text-paragraph>
-    </card-big>
 </grid-column>
 <style>
     text-paragraph {
