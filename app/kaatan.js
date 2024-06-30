@@ -52,6 +52,7 @@ const App = {
         let postsIndex = 0;
         posts = await Content.LoadJSON("blog.json");
         const container = document.getElementById("posts-list");
+
         for(const i = 0; i < posts.length; i++) {
             const cardBig = document.createElement("card-big");
             const title = document.createElement("text-heading");
@@ -72,6 +73,7 @@ const App = {
                 link.onclick = () => window.open(posts[i].Link);
                 cardBig.appendChild(image);
             }
+            container.appendChild(cardBig);
         }
     },
     LOOP: () => {
