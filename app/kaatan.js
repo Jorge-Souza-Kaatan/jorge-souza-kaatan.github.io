@@ -49,21 +49,21 @@ const App = {
         BOTTOMBAR.appendChild(nextButton);
 
         let posts = [];
-        let postsIndex = 0;
-        posts = await Content.LoadJSON("blog.json");
+        let i = 0;
+        posts = await Content.LoadJSON("https://cdn-kaatan.loophole.site/cdn/blog/blog.json");
         const container = document.getElementById("posts-list");
 
         function renderPost(index) {
             prevButton.onclick = e => {
-                if (postsIndex > 0) {
-                    postsIndex--;
-                    renderPost(postsIndex);
+                if (i > 0) {
+                    i--;
+                    renderPost(i);
                 }
             };
             nextButton.onclick = e => {
-                if (postsIndex < posts.length - 1) {
-                    postsIndex++;
-                    renderPost(postsIndex);
+                if (i < posts.length - 1) {
+                    i++;
+                    renderPost(i);
                 }
             };
 
@@ -91,15 +91,15 @@ const App = {
             }
             container.appendChild(cardBig);
 
-            if (postsIndex == 0) {
+            if (i == 0) {
                 prevButton.style.opacity = 0.3;
                 prevButton.onclick = null;
-            } else if (postsIndex == posts.length - 1) {
+            } else if (i == posts.length - 1) {
                 nextButton.style.opacity = 0.3;
                 nextButton.onclick = null;
             }
         }
-        renderPost(postsIndex);
+        renderPost(i);
     },
     LOOP: () => {
         Renderer.Layout.Verify();
