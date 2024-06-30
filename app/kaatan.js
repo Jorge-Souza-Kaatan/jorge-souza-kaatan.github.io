@@ -60,6 +60,7 @@ const App = {
             cardBig.appendChild(title);
             if(posts[i].Image) {
                 const image = document.createElement("img");
+                image.style.width = "100%";
                 image.src = posts[i].Image;
                 cardBig.appendChild(image);
             }
@@ -68,7 +69,7 @@ const App = {
             cardBig.appendChild(content);
             //
             if(posts[i].Link) {
-                const link = document.createElement("buttom-squared");
+                const link = document.createElement("button-squared");
                 link.innerHTML = posts[i].Link.Title;
                 link.onclick = () => window.open(posts[i].Link);
                 cardBig.appendChild(link);
