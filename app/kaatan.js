@@ -28,7 +28,7 @@ const App = {
             APPVIEW.innerHTML = ads;
         });
     },
-    News: () => {
+    News: async () => {
         Renderer.Load("news").then(news => {
             APPVIEW.innerHTML = news;
         });
