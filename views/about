@@ -59,7 +59,16 @@
             <img src="/files/carcara_branco.svg">
         </grid-row>
         <text-paragraph>
-            Kaatan é uma palavra formada do tupi antigo que significa Guerreiro Valente, é a junção de dois radicais:
+            A nossa logo, em qualquer de suas variações, consiste na figura minimalista de um carcará na cor branca.
+        </text-paragraph>
+        <text-paragraph>
+            O carcará é uma ave nativa da américa do sul encontrada principalmente no Brasil,
+            é um dos símbolos, não somente da cultura nordestina como também brasileira.
+        </text-paragraph>
+        <text-paragraph>
+            Entre as variações da logo, as três principais são: o carcará solitário, o carcará vazado num quadrado
+            branco rotacionado em 30 graus, e este último em formato vertical acompanhado do nome Kaatan na
+            fonte Chisel Mark.
         </text-paragraph>
 
         
@@ -69,6 +78,9 @@
         </text-subheading>
         <text-paragraph>
             Kaatan é uma palavra formada do tupi antigo que significa Guerreiro Valente, é a junção de dois radicais:
+        </text-paragraph>
+        
+        <text-paragraph>
         </text-paragraph>
     </card-big>
 </grid-column>
