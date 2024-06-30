@@ -55,8 +55,8 @@
         <text-subheading>
             Significado da logo
         </text-subheading>
-        <grid-row>
-            <img src="/files/carcara_branco.svg">
+        <grid-row style="justify-content: center;">
+            <img src="/files/carcara_branco.svg" style="height: 160px; padding: 20px;">
         </grid-row>
         <text-paragraph>
             A nossa logo, em qualquer de suas variações, consiste na figura minimalista de um carcará na cor branca.
