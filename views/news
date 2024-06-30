@@ -1,11 +1,4 @@
-<grid-column style="padding: 5px; gap: 5px;" id="posts-list">
-    <card-big class="no-hover no-elastic">
-        <text-heading>
-            Blog
-        </text-heading>
-    </card-big>
-    <horizontal-divider></horizontal-divider>
-</grid-column>
+<grid-column style="padding: 5px; gap: 5px;" id="posts-list"></grid-column>
 <style>
     text-paragraph {
         text-indent: 50px;

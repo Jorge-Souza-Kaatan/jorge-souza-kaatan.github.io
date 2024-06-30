@@ -53,19 +53,9 @@ const App = {
         posts = await Content.LoadJSON("https://cdn-kaatan.loophole.site/cdn/blog/blog.json");
         const container = document.getElementById("posts-list");
 
-        function renderPost(index) {
-            prevButton.onclick = e => {
-                if (i > 0) {
-                    i--;
-                    renderPost(i);
-                }
-            };
-            nextButton.onclick = e => {
-                if (i < posts.length - 1) {
-                    i++;
-                    renderPost(i);
-                }
-            };
+        function renderPost() {
+            if (i > 0) i--;
+            if (i < posts.length - 1) i++;
 
             const cardBig = document.createElement("card-big");
             cardBig.classList.add("no-hover");
@@ -93,10 +83,17 @@ const App = {
 
             if (i == 0) {
                 prevButton.style.opacity = 0.3;
-                prevButton.onclick = null;
-            } else if (i == posts.length - 1) {
+                prevButton.removeEventListener("click", renderPost);
+            } else {
+                prevButton.style.opacity = 1;
+                prevButton.addEventListener("click", renderPost);
+            }
+            if (i == posts.length - 1) {
                 nextButton.style.opacity = 0.3;
-                nextButton.onclick = null;
+                nextButton.removeEventListener("click", renderPost);
+            } else {
+                nextButton.style.opacity = 1;
+                nextButton.addEventListener("click", renderPost);
             }
         }
         renderPost(i);
