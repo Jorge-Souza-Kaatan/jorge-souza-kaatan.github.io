@@ -6,7 +6,69 @@
     </card-big>
     <card-big class="no-hover no-elastic">
         <text-paragraph>
-            Sobre
+            A Rede Kaatan é uma plataforma interconectada de aplicações que só cresce. Dentre nossas aplicações encontram-se serviços, comunicação, aprendizagem e muito mais.
+        </text-paragraph>
+        <text-paragraph>
+            Estamos no começo e a maioria delas ainda não está disponível para uso, mas temos aplicações incríveis sendo desenvolvidas neste exato momento, retorne em breve para encontrar um quentinha saindo do forno!
+        </text-paragraph>
+        <text-paragraph>
+        </text-paragraph>
+        <text-paragraph>
+        </text-paragraph>
+        <text-paragraph>
+        </text-paragraph>
+        <text-paragraph>
+        </text-paragraph>
+        
+        <text-subheading>
+            O que significa Kaatan
+        </text-subheading>
+        <text-paragraph>
+            Kaatan é uma palavra formada do tupi antigo que significa Guerreiro Valente, é a junção de dois radicais:
+        </text-paragraph>
+        <text-paragraph>
+            Kaa: Floresta;
+        </text-paragraph>
+        <text-paragraph>
+            Tan: Bravo;
+        </text-paragraph>
+        <text-paragraph>
+            E era utilizada para designar o índio mais corajoso e valente da floresta, audacioso e que não temia os
+            perigos que a mata lhe reservava.
+        </text-paragraph>
+        <text-paragraph>
+        </text-paragraph>
+            Dessa palavra derivam palavras como caatinga (kaa: floresta/mata, tinga: branca, "mata branca")
+        <text-paragraph>
+            O tupi antigo foi a lingua dos povos que habitavam a costa brasileira antes da colonização portuguesa e
+            era falada por milhões de indivíduos entre tupinambás, tupiniquins e tupi-guaranis, foi um idioma falado durante
+            séculos e alguns históriadores acreditam que talvez foi falado por milênios.
+        </text-paragraph>
+        <text-paragraph>
+            Embora extinto o tupi antigo ainda sobrevive em seu decendente direto nheengatu da Amazônia e em
+            toda a nossa língua portuguesa, só para citar algumas palavra utilizadas atualmente que apesar de
+            incorporadas na língua portuguesa, são, na realidade tupi antigo, temos: abacaxi, piranha, ipanema, jabuti e carioca.
+        </text-paragraph>
+
+        
+        
+        <text-subheading>
+            Significado da logo
+        </text-subheading>
+        <grid-row>
+            <img src="../files/carcara_branco.svg">
+        </grid-row>
+        <text-paragraph>
+            Kaatan é uma palavra formada do tupi antigo que significa Guerreiro Valente, é a junção de dois radicais:
+        </text-paragraph>
+
+        
+        
+        <text-subheading>
+            O que significa Kaatan
+        </text-subheading>
+        <text-paragraph>
+            Kaatan é uma palavra formada do tupi antigo que significa Guerreiro Valente, é a junção de dois radicais:
         </text-paragraph>
     </card-big>
 </grid-column>
