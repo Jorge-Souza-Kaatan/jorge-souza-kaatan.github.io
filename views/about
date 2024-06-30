@@ -7,20 +7,22 @@
     <horizontal-divider></horizontal-divider>
     <card-big class="no-hover no-elastic">
         <text-paragraph>
-            A Rede Kaatan é uma plataforma interconectada de aplicações que só cresce. Dentre nossas aplicações encontram-se serviços, comunicação, aprendizagem e muito mais.
+            A Rede Kaatan é uma plataforma interconectada de aplicações que só cresce. Dentre nossas aplicações
+            encontram-se serviços, comunicação, aprendizagem e muito mais.
         </text-paragraph>
         <text-paragraph>
-            Estamos no começo e a maioria delas ainda não está disponível para uso, mas temos aplicações incríveis sendo desenvolvidas neste exato momento, retorne em breve para encontrar um quentinha saindo do forno!
-        </text-paragraph>
-        <text-paragraph>
-        </text-paragraph>
-        <text-paragraph>
+            Estamos no começo e a maioria delas ainda não está disponível para uso, mas temos aplicações incríveis sendo
+            desenvolvidas neste exato momento, retorne em breve para encontrar um quentinha saindo do forno!
         </text-paragraph>
         <text-paragraph>
         </text-paragraph>
         <text-paragraph>
         </text-paragraph>
-        
+        <text-paragraph>
+        </text-paragraph>
+        <text-paragraph>
+        </text-paragraph>
+
         <text-subheading>
             O que significa Kaatan
         </text-subheading>
@@ -42,17 +44,19 @@
         </text-paragraph>
         <text-paragraph>
             O tupi antigo foi a lingua dos povos que habitavam a costa brasileira antes da colonização portuguesa e
-            era falada por milhões de indivíduos entre tupinambás, tupiniquins e tupi-guaranis, foi um idioma falado durante
+            era falada por milhões de indivíduos entre tupinambás, tupiniquins e tupi-guaranis, foi um idioma falado
+            durante
             séculos e alguns históriadores acreditam que talvez foi falado por milênios.
         </text-paragraph>
         <text-paragraph>
             Embora extinto o tupi antigo ainda sobrevive em seu decendente direto nheengatu da Amazônia e em
             toda a nossa língua portuguesa, só para citar algumas palavra utilizadas atualmente que apesar de
-            incorporadas na língua portuguesa, são, na realidade tupi antigo, temos: abacaxi, piranha, ipanema, jabuti e carioca.
+            incorporadas na língua portuguesa, são, na realidade tupi antigo, temos: abacaxi, piranha, ipanema, jabuti e
+            carioca.
         </text-paragraph>
 
-        
-        
+
+
         <text-subheading>
             Significado da logo
         </text-subheading>
@@ -68,12 +72,13 @@
         </text-paragraph>
         <text-paragraph>
             Entre as variações da logo, as três principais são: o carcará solitário, o carcará vazado num quadrado
-            branco rotacionado em 30 graus (encontrado em nosso favicon), e este último em formato horizontal acompanhado
+            branco rotacionado em 30 graus (encontrado em nosso favicon), e este último em formato horizontal
+            acompanhado
             do nome Kaatan na fonte Chisel Mark (encontrado no botão de página inicial de todas nossas aplicações).
         </text-paragraph>
 
-        
-        
+
+
         <text-subheading>
             O desenvolvedor
         </text-subheading>
@@ -83,8 +88,10 @@
             informática básica e programação e desenvolvimento web. Além de escritor nas horas vagas e um
             <i>protopolímata inveterado</i>. Se quiser saber um pouco mais de mim visite:
         </text-paragraph>
-        </card-big>
+    </card-big>
+    <card-big class="no-hover no-elastic" style="cursor: pointer;">
         <text-label onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
+    </card-big>
 </grid-column>
 <style>
     text-paragraph {
