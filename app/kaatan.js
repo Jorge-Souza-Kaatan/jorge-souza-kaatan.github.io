@@ -32,6 +32,22 @@ const App = {
         Renderer.Load("news").then(news => {
             APPVIEW.innerHTML = news;
         });
+        //BOTTOMBAR.sty
+        let _ = document.createElement("span")
+
+        BOTTOMBAR.style.display = "grid";
+        BOTTOMBAR.style.gridTemplateColumns = "1fr 1fr";
+        BOTTOMBAR.style.padding = "5px";
+        BOTTOMBAR.style.gap = "5px";
+        let prevButton = document.createElement("card-big");
+        prevButton.style.textAlign = "center";
+        prevButton.innerText = "Anterior"
+        let nextButton = document.createElement("card-big");
+        nextButton.style.textAlign = "center";
+        nextButton.innerText = "Próximo";
+        let posts = Content.LoadJSON("blog.json");
+        BOTTOMBAR.appendChild(prevButton);
+        BOTTOMBAR.appendChild(nextButton);
     },
     LOOP: () => {
         Renderer.Layout.Verify();
