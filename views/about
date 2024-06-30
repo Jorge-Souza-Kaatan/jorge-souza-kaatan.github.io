@@ -80,8 +80,8 @@
             <i>protopolímata inveterado</i>. Se quiser saber um pouco mais de mim visite:
         </text-paragraph>
     </card-big>
-    <card-big class="no-hover no-elastic" style="cursor: pointer;">
-        <text-label onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
+    <card-big class="no-hover no-elastic" style="cursor: pointer; margin-bottom: 15px;">
+        <text-label style="text-align: center;" onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
     </card-big>
 </grid-column>
 <style>
