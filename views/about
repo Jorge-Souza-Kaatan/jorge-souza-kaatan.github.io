@@ -55,7 +55,7 @@
         <text-subheading>
             Significado da logo
         </text-subheading>
-        <grid-row style="justify-content: center;">
+        <grid-row style="justify-content: center; pointer-events: none;">
             <img src="/files/carcara_branco.svg" style="height: 160px; padding: 20px;">
         </grid-row>
         <text-paragraph>
@@ -67,18 +67,22 @@
         </text-paragraph>
         <text-paragraph>
             Entre as variações da logo, as três principais são: o carcará solitário, o carcará vazado num quadrado
-            branco rotacionado em 30 graus, e este último em formato vertical acompanhado do nome Kaatan na
-            fonte Chisel Mark.
+            branco rotacionado em 30 graus (encontrado em nosso favicon), e este último em formato horizontal acompanhado
+            do nome Kaatan na fonte Chisel Mark (encontrado no botão de página inicial de todas nossas aplicações).
         </text-paragraph>
 
         
         
         <text-subheading>
-            O que significa Kaatan
+            O desenvolvedor
         </text-subheading>
         <text-paragraph>
-            Kaatan é uma palavra formada do tupi antigo que significa Guerreiro Valente, é a junção de dois radicais:
+            Jorge Souza Oliveira dos Santos é um projetista, cadista de arquitetura e interiores
+            e instrutor de cursos técnicos no setor de informática com ênfase nos cursos de AutoCAD,
+            informática básica e programação e desenvolvimento web. Além de escritor nas horas vagas e um
+            <i>protopolímata inveterado</i>. Se quiser saber um pouco mais de mim visite:
         </text-paragraph>
+        <textlabel onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</textlabel>
         
         <text-paragraph>
         </text-paragraph>
