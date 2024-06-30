@@ -14,15 +14,8 @@
             Estamos no começo e a maioria delas ainda não está disponível para uso, mas temos aplicações incríveis sendo
             desenvolvidas neste exato momento, retorne em breve para encontrar um quentinha saindo do forno!
         </text-paragraph>
-        <text-paragraph>
-        </text-paragraph>
-        <text-paragraph>
-        </text-paragraph>
-        <text-paragraph>
-        </text-paragraph>
-        <text-paragraph>
-        </text-paragraph>
-
+    </card-big>
+    <card-big class="no-hover no-elastic" style="cursor: pointer;">
         <text-subheading>
             O que significa Kaatan
         </text-subheading>
@@ -54,9 +47,8 @@
             incorporadas na língua portuguesa, são, na realidade tupi antigo, temos: abacaxi, piranha, ipanema, jabuti e
             carioca.
         </text-paragraph>
-
-
-
+    </card-big>
+    <card-big class="no-hover no-elastic" style="cursor: pointer;">
         <text-subheading>
             Significado da logo
         </text-subheading>
@@ -76,9 +68,8 @@
             acompanhado
             do nome Kaatan na fonte Chisel Mark (encontrado no botão de página inicial de todas nossas aplicações).
         </text-paragraph>
-
-
-
+    </card-big>
+    <card-big class="no-hover no-elastic" style="cursor: pointer;">
         <text-subheading>
             O desenvolvedor
         </text-subheading>
