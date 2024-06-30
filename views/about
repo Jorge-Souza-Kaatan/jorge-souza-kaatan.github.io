@@ -82,7 +82,7 @@
             informática básica e programação e desenvolvimento web. Além de escritor nas horas vagas e um
             <i>protopolímata inveterado</i>. Se quiser saber um pouco mais de mim visite:
         </text-paragraph>
-        <textlabel onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</textlabel>
+        <text-label onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
         
         <text-paragraph>
         </text-paragraph>
