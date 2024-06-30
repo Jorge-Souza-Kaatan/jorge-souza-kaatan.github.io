@@ -72,6 +72,7 @@ const App = {
             if (posts[i].Image) {
                 const image = document.createElement("img");
                 image.style.width = "100%";
+                image.style.boxShadow = "0 0 7px white";
                 image.src = posts[i].Image;
                 cardBig.appendChild(image);
             }
