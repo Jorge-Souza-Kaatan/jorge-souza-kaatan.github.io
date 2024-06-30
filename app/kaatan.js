@@ -54,12 +54,7 @@ const App = {
         const container = document.getElementById("posts-list");
 
         function renderPost() {
-            container.innerHTML = `
-                <card-big class="no-hover no-elastic">
-                    <text-heading>Blog</text-heading>
-                </card-big>
-                <horizontal-divider></horizontal-divider>
-            `;
+            container.innerHTML = "";
 
             const cardBig = document.createElement("card-big");
             cardBig.classList.add("no-hover");
