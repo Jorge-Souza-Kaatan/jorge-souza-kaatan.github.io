@@ -71,7 +71,7 @@ const App = {
                 const link = document.createElement("buttom-squared");
                 link.innerHTML = posts[i].Link.Title;
                 link.onclick = () => window.open(posts[i].Link);
-                cardBig.appendChild(image);
+                cardBig.appendChild(link);
             }
             container.appendChild(cardBig);
         }
