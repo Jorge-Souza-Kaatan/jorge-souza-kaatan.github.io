@@ -5,11 +5,6 @@
         </text-heading>
     </card-big>
     <horizontal-divider></horizontal-divider>
-    <card-big class="no-hover no-elastic">
-        <text-paragraph>
-            Blog
-        </text-paragraph>
-    </card-big>
 </grid-column>
 <style>
     text-paragraph {
