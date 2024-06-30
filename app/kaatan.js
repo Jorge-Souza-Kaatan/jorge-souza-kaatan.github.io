@@ -55,6 +55,8 @@ const App = {
 
         for(let i = 0; i < posts.length; i++) {
             const cardBig = document.createElement("card-big");
+            cardBig.classList.add("no-hover");
+            cardBig.classList.add("no-elastic");
             const title = document.createElement("text-heading");
             title.innerHTML = posts[i].Title;
             cardBig.appendChild(title);
