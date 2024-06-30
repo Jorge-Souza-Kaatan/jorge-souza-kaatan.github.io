@@ -53,7 +53,7 @@ const App = {
         posts = await Content.LoadJSON("blog.json");
         const container = document.getElementById("posts-list");
 
-        for(const i = 0; i < posts.length; i++) {
+        for(let i = 0; i < posts.length; i++) {
             const cardBig = document.createElement("card-big");
             const title = document.createElement("text-heading");
             title.innerHTML = posts[i].Title;
