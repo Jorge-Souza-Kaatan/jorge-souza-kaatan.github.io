@@ -88,14 +88,14 @@ const App = {
             }
             container.appendChild(cardBig);
 
-            if (i == 0) {
+            if (i == posts.length - 1) {
                 prevButton.style.opacity = 0.3;
                 prevButton.removeEventListener("click", renderPost);
             } else {
                 prevButton.style.opacity = 1;
                 prevButton.addEventListener("click", renderPost);
             }
-            if (i == posts.length - 1) {
+            if (i == 0) {
                 nextButton.style.opacity = 0.3;
                 nextButton.removeEventListener("click", renderPost);
             } else {
@@ -103,7 +103,7 @@ const App = {
                 nextButton.addEventListener("click", renderPost);
             }
         }
-        renderPost(i);
+        renderPost();
     },
     LOOP: () => {
         Renderer.Layout.Verify();
