@@ -60,8 +60,6 @@ const App = {
                 </card-big>
                 <horizontal-divider></horizontal-divider>
             `;
-            if (i > 0) i--;
-            if (i < posts.length - 1) i++;
 
             const cardBig = document.createElement("card-big");
             cardBig.classList.add("no-hover");
@@ -82,25 +80,47 @@ const App = {
             //
             if (posts[i].Link) {
                 const link = document.createElement("button-squared");
-                link.innerHTML = posts[i].Link.Title;
+                link.textContent = posts[i].Link.Title;
                 link.onclick = () => window.open(posts[i].Link.URL);
                 cardBig.appendChild(link);
             }
             container.appendChild(cardBig);
+            
+            updateNavigationButtons();
+        }
 
-            if (i == posts.length - 1) {
+        //
+
+        function updateNavigationButtons() {
+            if (i === 0) {
                 prevButton.style.opacity = 0.3;
-                prevButton.removeEventListener("click", renderPost);
+                prevButton.removeEventListener("click", prevPost);
             } else {
                 prevButton.style.opacity = 1;
-                prevButton.addEventListener("click", renderPost);
+                prevButton.addEventListener("click", prevPost);
             }
-            if (i == 0) {
+        
+            if (i === posts.length - 1) {
                 nextButton.style.opacity = 0.3;
-                nextButton.removeEventListener("click", renderPost);
+                nextButton.removeEventListener("click", nextPost);
             } else {
                 nextButton.style.opacity = 1;
-                nextButton.addEventListener("click", renderPost);
+                nextButton.addEventListener("click", nextPost);
+            }
+        }
+
+        //
+
+        function prevPost() {
+            if(i > 0) {
+                i--;
+                renderPost();
+            }
+        }
+        function nextPost() {
+            if(i < posts.length - 1) {
+                i++;
+                renderPost();
             }
         }
         renderPost();
