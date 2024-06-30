@@ -73,7 +73,7 @@ const App = {
             if(posts[i].Link) {
                 const link = document.createElement("button-squared");
                 link.innerHTML = posts[i].Link.Title;
-                link.onclick = () => window.open(posts[i].Link);
+                link.onclick = () => window.open(posts[i].Link.URL);
                 cardBig.appendChild(link);
             }
             container.appendChild(cardBig);
