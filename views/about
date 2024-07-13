@@ -1,4 +1,4 @@
-<grid-column style="padding: 5px; gap: 5px;">
+<grid-column style="padding: 5px; gap: 5px;" class="posts-view">
     <card-big class="no-hover no-elastic">
         <text-heading>
             Sobre
