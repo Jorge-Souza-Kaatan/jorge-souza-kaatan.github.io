@@ -50,7 +50,8 @@ const App = {
 
         let posts = [];
         let i = 0;
-        posts = await Content.LoadJSON("https://kaatan.loophole.site/cdn/blog/blog.json");
+        posts = await Content.LoadJSON("/blog/blog.json");
+        console.log(posts)
         const container = document.getElementById("posts-list");
 
         function renderPost() {
