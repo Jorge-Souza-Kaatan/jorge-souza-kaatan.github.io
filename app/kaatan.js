@@ -10,7 +10,11 @@ const App = {
         Renderer.Load("home").then(home => {
             const container = document.createElement("acacia-container");
             container.innerHTML = home;
-            document.body.appendChild(container)
+            document.body.appendChild(container);
+            fetch("https://kaatan.azurewebsites.net/azurekaatan/quote/")
+                .then(x => x.text()).then(quote => {
+                    document.getElementById("quote").innerText = quote;
+                });
         });
     },
     About: () => {
@@ -81,7 +85,7 @@ const App = {
                 cardBig.appendChild(link);
             }
             container.appendChild(cardBig);
-            
+
             updateNavigationButtons();
         }
 
@@ -95,7 +99,7 @@ const App = {
                 prevButton.style.opacity = 1;
                 prevButton.addEventListener("click", prevPost);
             }
-        
+
             if (i === posts.length - 1) {
                 nextButton.style.opacity = 0.3;
                 nextButton.removeEventListener("click", nextPost);
@@ -108,13 +112,13 @@ const App = {
         //
 
         function prevPost() {
-            if(i > 0) {
+            if (i > 0) {
                 i--;
                 renderPost();
             }
         }
         function nextPost() {
-            if(i < posts.length - 1) {
+            if (i < posts.length - 1) {
                 i++;
                 renderPost();
             }
