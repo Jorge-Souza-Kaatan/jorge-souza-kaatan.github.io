@@ -2,75 +2,74 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Jorge Souza Oliveira dos Santos">
-  <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jorge Souza Oliveira dos Santos">
+    <meta name="description" content="">
 
-  <!-- SCRIPTS -->
-  <script src="/app/kaatan.js"></script>
-  <script src="/acacia/acacia.js"></script>
-  <script src="/acacia/content.js"></script>
-  <script src="/acacia/renderer.js"></script>
-  <!-- STYLES -->
-  <link rel="stylesheet" href="/app/app.css">
-  <link rel="stylesheet" href="/acacia/acacia.css">
-  <!-- PWA -->
-  <link rel="shortcut icon" href="/files/ret_branco.svg" type="image/x-icon">
-  <title></title>
+    <script type="module" src="https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
+    <link rel="stylesheet" href="https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.css">
+
+    <script src="app/kaatan.js"></script>
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="shortcut icon" href="https://cdn-kaatan.azurewebsites.net/files/ret_branco.svg" type="image/x-icon">
+
+    <title></title>
 </head>
 
 <body></body>
 
 </html>
 
-<script>
-  let KaatanConsoleBrand = `
+<script type="module" async>
+    import { Acacia } from "https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.js";
+    
+    let KaatanConsoleBrand = `
 ██   ██  █████   █████  ████████  █████  ███    ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ████   ██
 █████   ███████ ███████    ██    ███████ ██ ██  ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ██  ██ ██
 ██   ██ ██   ██ ██   ██    ██    ██   ██ ██   ████
     `;
-  console.log(KaatanConsoleBrand);
+    console.log(KaatanConsoleBrand);
 
-  const sideMenu = {
-    Links: [
-      {
-        LinkTile: "Início",
-        LinkIcon: "/files/home.svg",
-        LinkAction: () => window.location.pathname = "/"
-      },
-      {
-        LinkTile: "Sobre",
-        LinkIcon: "/files/info.svg",
-        LinkAction: () => window.location.pathname = "/sobre.html"
-      },
-      {
-        LinkTile: "Contato e suporte",
-        LinkIcon: "/files/help-icon.svg",
-        LinkAction: () => window.location.pathname = "/suporte.html"
-      },
-      {
-        LinkTile: "Blog",
-        LinkIcon: "/files/news.svg",
-        LinkAction: () => window.location.pathname = "/news.html"
-      },
-      {
-        LinkTile: "Anúncio",
-        LinkIcon: "/files/megaphone.svg",
-        LinkAction: () => window.location.pathname = "/anuncio.html"
-      }
-    ],
-    ShowProfileSection: false,
-    ProfileSection: {
-      ProfilePic: null,
-      ProfileName: null,
-      ProfileUsername: null,
-      Action: null
+    const sideMenu = {
+        Links: [
+            {
+                LinkTile: "Início",
+                LinkIcon: "https://cdn-kaatan.azurewebsites.net/files/home.svg",
+                LinkAction: () => window.location.pathname = "/"
+            },
+            {
+                LinkTile: "Sobre",
+                LinkIcon: "https://cdn-kaatan.azurewebsites.net/files/info.svg",
+                LinkAction: () => window.location.pathname = "/sobre.html"
+            },
+            {
+                LinkTile: "Contato e suporte",
+                LinkIcon: "https://cdn-kaatan.azurewebsites.net/files/help-icon.svg",
+                LinkAction: () => window.location.pathname = "/suporte.html"
+            },
+            {
+                LinkTile: "Blog",
+                LinkIcon: "https://cdn-kaatan.azurewebsites.net/files/news.svg",
+                LinkAction: () => window.location.pathname = "/news.html"
+            },
+            {
+                LinkTile: "Anúncio",
+                LinkIcon: "https://cdn-kaatan.azurewebsites.net/files/megaphone-speaker-svgrepo-com.svg",
+                LinkAction: () => window.location.pathname = "/anuncio.html"
+            }
+        ],
+        ShowProfileSection: false,
+        ProfileSection: {
+            ProfilePic: null,
+            ProfileName: null,
+            ProfileUsername: null,
+            Action: null
+        }
     }
-  }
 
-  const acacia = new Acacia("Sobre | Kaatan - 100% Brasileira", false, true, sideMenu, () => App.Main(App.About));
+    const acacia = new Acacia("Sobre | Kaatan - 100% Brasileira", true, sideMenu, () => App.Main(App.About));
 
 </script>

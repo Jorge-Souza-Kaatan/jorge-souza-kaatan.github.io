@@ -6,17 +6,6 @@ const App = {
         if (window.location.pathname != "/") setInterval(App.LOOP, 999);
         if (callback) callback();
     },
-    Home: () => {
-        Renderer.Load("home").then(home => {
-            const container = document.createElement("acacia-container");
-            container.innerHTML = home;
-            document.body.appendChild(container);
-            fetch("https://kaatan.azurewebsites.net/azurekaatan/quote/")
-                .then(x => x.text()).then(quote => {
-                    document.getElementById("quote").innerText = quote;
-                });
-        });
-    },
     About: () => {
         Renderer.Load("about").then(about => {
             APPVIEW.innerHTML = about;
@@ -54,7 +43,7 @@ const App = {
 
         let posts = [];
         let i = 0;
-        posts = await Content.LoadJSON("/blog/blog.json");
+        posts = await Content.LoadJSON("blog/blog.json");
         console.log(posts)
         const container = document.getElementById("posts-list");
 

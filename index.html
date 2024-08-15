@@ -2,37 +2,94 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Jorge Souza Oliveira dos Santos">
-  <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jorge Souza Oliveira dos Santos">
+    <meta name="description" content="">
 
-  <!-- SCRIPTS -->
-  <script src="/app/kaatan.js"></script>
-  <script src="/acacia/acacia.js"></script>
-  <script src="/acacia/content.js"></script>
-  <script src="/acacia/renderer.js"></script>
-  <!-- STYLES -->
-  <link rel="stylesheet" href="/app/app.css">
-  <link rel="stylesheet" href="/acacia/acacia.css">
-  <!-- PWA -->
-  <link rel="shortcut icon" href="/files/ret_branco.svg" type="image/x-icon">
-  <title>Kaatan | 100% Brasileira</title>
+     <script type="module" src="https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
+     <link rel="stylesheet" href="https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.css">
+
+    <script src="app/kaatan.js"></script>
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="shortcut icon" href="https://cdn-kaatan.azurewebsites.net/files/ret_branco.svg" type="image/x-icon">
+    <title>Kaatan | 100% Brasileira</title>
 </head>
 
-<body></body>
+<body>
+    <acacia-container>
+        <grid-column class="home-page">
+            <grid-row class="home-titlebar">
+                <span>
+                    <text-label style="margin: 5px;">Aplicações</text-label>
+                </span>
+                <span>
+                    <img src="">
+                </span>
+                <span>
+                    <img src="">
+                </span>
+                <span class="titlebar-btn" style="display: none;">
+                    <img src="https://cdn-kaatan.azurewebsites.net/files/default.svg">
+                </span>
+                <span class="titlebar-btn" style="display: none;">
+                    <img src="https://cdn-kaatan.azurewebsites.net/files/notification.svg">
+                </span>
+            </grid-row>
+            <grid-column class="content-view">
+                <img src="https://cdn-kaatan.azurewebsites.net/files/conjunto_branco.svg" style="
+                                width: 30%;
+                                margin-block: 15px;
+                                user-select: none;
+                                -webkit-user-drag: none;">
+                <div class="home-btns">
+                    <img src="files/home/i04.svg" onclick="window.open('https://www.kaatan.com.br/radio')">
+                    <img src="files/home/i06.svg" onclick="window.location.pathname = '/news.html'">
+                    <img src="files/home/i03.svg" class="inactive"
+                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
+                    <img src="files/home/i01.svg" class="inactive"
+                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
+                    <img src="files/home/i02.svg" class="inactive"
+                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
+                    <img src="files/home/i05.svg" class="inactive"
+                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
+                    <img src="files/home/i07.svg"
+                        onclick="Modal.Message('Aguarde', 'Ficamos felizes em saber do seu interesse em anunciar em nossos aplicativos, mas ainda estamos recolhendo as métricas de acesso e uso e, assim que elas estiverem disponíveis para um mecanismo de anúncios transparente disponibilizaremos aqui. Retorne em breve.')">
+                    <img src="files/home/i08.svg" onclick="window.location.pathname = '/sobre.html'">
+                </div>
+                <grid-column style="width: 90%;">
+                    <text-paragraph style="text-align: center; font-size: 0.9em; width: 100%;">Pensamento do
+                        dia:</text-paragraph>
+                    <text-paragraph id="quote"
+                        style="text-align: center; font-size: 0.9em; font-weight: bold; width: 100%;">
+                        A melhor vitória se obtém na batalha que não foi travada.
+                    </text-paragraph>
+                </grid-column>
+            </grid-column>
+            <grid-row class="home-footerbar" style="justify-content: center;">
+                <text-label onclick="window.open(`http://www.jorgesouza.com.br`)">Desenvolvido por: Jorge Souza Oliveira
+                    dos
+                    Santos</text-label>
+            </grid-row>
+        </grid-column>
+        <script>
+            fetch("https://kaatan.azurewebsites.net/azurekaatan/quote/")
+                .then(x => x.text()).then(quote => {
+                    document.getElementById("quote").innerText = quote;
+                });
+        </script>
+    </acacia-container>
+</body>
 
 </html>
 
 <script>
-  let KaatanConsoleBrand = `
+    let KaatanConsoleBrand = `
 ██   ██  █████   █████  ████████  █████  ███    ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ████   ██
 █████   ███████ ███████    ██    ███████ ██ ██  ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ██  ██ ██
 ██   ██ ██   ██ ██   ██    ██    ██   ██ ██   ████
     `;
-  console.log(KaatanConsoleBrand);
-
-  App.Main(App.Home);
+    console.log(KaatanConsoleBrand);
 </script>

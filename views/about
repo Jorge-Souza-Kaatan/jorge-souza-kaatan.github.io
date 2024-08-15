@@ -1,10 +1,12 @@
-<grid-column style="padding: 5px; gap: 5px;" class="posts-view">
+<grid-column class="posts-view">
     <card-big class="no-hover no-elastic">
         <text-heading>
             Sobre
         </text-heading>
     </card-big>
+
     <horizontal-divider></horizontal-divider>
+
     <card-big class="no-hover no-elastic">
         <text-paragraph>
             A Rede Kaatan é uma plataforma interconectada de aplicações que só cresce. Dentre nossas aplicações
@@ -15,7 +17,8 @@
             desenvolvidas neste exato momento, retorne em breve para encontrar um quentinha saindo do forno!
         </text-paragraph>
     </card-big>
-    <card-big class="no-hover no-elastic" style="cursor: pointer;">
+
+    <card-big class="no-hover no-elastic">
         <text-subheading>
             O que significa Kaatan
         </text-subheading>
@@ -48,12 +51,12 @@
             carioca.
         </text-paragraph>
     </card-big>
-    <card-big class="no-hover no-elastic" style="cursor: pointer;">
+    <card-big class="no-hover no-elastic">
         <text-subheading>
             Significado da logo
         </text-subheading>
         <grid-row style="justify-content: center; pointer-events: none;">
-            <img src="/files/carcara_branco.svg" style="height: 160px; padding: 20px;">
+            <img src="https://cdn-kaatan.azurewebsites.net/files/carcara_branco.svg" style="height: 160px; padding: 20px;">
         </grid-row>
         <text-paragraph>
             A nossa logo, em qualquer de suas variações, consiste na figura minimalista de um carcará na cor branca.
@@ -69,7 +72,7 @@
             do nome Kaatan na fonte Chisel Mark (encontrado no botão de página inicial de todas nossas aplicações).
         </text-paragraph>
     </card-big>
-    <card-big class="no-hover no-elastic" style="cursor: pointer;">
+    <card-big class="no-hover no-elastic">
         <text-subheading>
             O desenvolvedor
         </text-subheading>
@@ -80,8 +83,9 @@
             <i>protopolímata inveterado</i>. Se quiser saber um pouco mais de mim visite:
         </text-paragraph>
     </card-big>
-    <card-big class="no-hover no-elastic" style="cursor: pointer; margin-bottom: 15px;">
-        <text-label style="text-align: center;" onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
+    <card-big class="no-hover no-elastic" style="justify-content: center;">
+        <text-label style="cursor: pointer;"
+            onclick="window.open('https://www.jorgesouza.com.br/')">www.jorgesouza.com.br</text-label>
     </card-big>
 </grid-column>
 <style>
