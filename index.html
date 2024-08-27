@@ -7,8 +7,8 @@
     <meta name="author" content="Jorge Souza Oliveira dos Santos">
     <meta name="description" content="">
 
-     <script type="module" src="https://kaatan.loophole.site/cdn/lib/acacia/acacia.js"></script>
-     <link rel="stylesheet" href="https://kaatan.loophole.site/cdn/lib/acacia/acacia.css">
+    <script type="module" src="https://kaatan.loophole.site/cdn/lib/acacia/acacia.js"></script>
+    <link rel="stylesheet" href="https://kaatan.loophole.site/cdn/lib/acacia/acacia.css">
 
     <script src="app/kaatan.js"></script>
     <link rel="stylesheet" href="app/app.css">
@@ -17,7 +17,8 @@
 </head>
 
 <body>
-    <acacia-container>
+
+    <acacia-container style="display: none;" id="container-2">
         <grid-column class="home-page">
             <grid-row class="home-titlebar">
                 <span>
@@ -79,6 +80,54 @@
                 });
         </script>
     </acacia-container>
+    <div class="offline-server" id="container-1">
+        <img src="files/kaatan_bot.svg">
+        <h3>Oh não! Parece que nossos servidores estão offline...</h3>
+        <h3>Não se preocupe, estamos trabalhando para restabelecer seu acesso, retorne em breve.</h3>
+    </div>
+
+    <style>
+        .offline-server {
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+        }
+
+        .offline-server * {
+            text-align: center;
+            margin: auto;
+            width: 50%;
+        }
+    </style>
+    <script>
+        const fetchTest = [false, false];
+        fetch("https://kaatan.loophole.site/").then(x => {
+            fetchTest[0] = true;
+            console.log("Servidor principal online");
+        }).catch(err => {
+            fetchTest[0] = false;
+            console.log("Servidor principal offline");
+        });
+        fetch("https://kaatan.loophole.site/cdn/").then(x => {
+            fetchTest[0] = true;
+            console.log("Servidor CDN online");
+        }).catch(err => {
+            fetchTest[0] = false;
+            console.log("Servidor CDN offline");
+        });
+
+        if (!fetchTest.includes(false)) {
+            document.getElementById("container-1").style.display = "none";
+            document.getElementById("container-2").style.display = "flex";
+        }
+    </script>
 </body>
 
 </html>
