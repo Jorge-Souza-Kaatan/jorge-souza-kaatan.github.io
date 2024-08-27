@@ -56,7 +56,7 @@
             Significado da logo
         </text-subheading>
         <grid-row style="justify-content: center; pointer-events: none;">
-            <img src="https://cdn-kaatan.azurewebsites.net/files/carcara_branco.svg" style="height: 160px; padding: 20px;">
+            <img src="https://kaatan.loophole.site/cdn/files/carcara_branco.svg" style="height: 160px; padding: 20px;">
         </grid-row>
         <text-paragraph>
             A nossa logo, em qualquer de suas variações, consiste na figura minimalista de um carcará na cor branca.

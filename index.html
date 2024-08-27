@@ -7,12 +7,12 @@
     <meta name="author" content="Jorge Souza Oliveira dos Santos">
     <meta name="description" content="">
 
-     <script type="module" src="https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
-     <link rel="stylesheet" href="https://cdn-kaatan.azurewebsites.net/lib/acacia/acacia.css">
+     <script type="module" src="https://kaatan.loophole.site/cdn/lib/acacia/acacia.js"></script>
+     <link rel="stylesheet" href="https://kaatan.loophole.site/cdn/lib/acacia/acacia.css">
 
     <script src="app/kaatan.js"></script>
     <link rel="stylesheet" href="app/app.css">
-    <link rel="shortcut icon" href="https://cdn-kaatan.azurewebsites.net/files/ret_branco.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="https://kaatan.loophole.site/cdn/files/ret_branco.svg" type="image/x-icon">
     <title>Kaatan | 100% Brasileira</title>
 </head>
 
@@ -30,14 +30,14 @@
                     <img src="">
                 </span>
                 <span class="titlebar-btn" style="display: none;">
-                    <img src="https://cdn-kaatan.azurewebsites.net/files/default.svg">
+                    <img src="https://kaatan.loophole.site/cdn/files/default.svg">
                 </span>
                 <span class="titlebar-btn" style="display: none;">
-                    <img src="https://cdn-kaatan.azurewebsites.net/files/notification.svg">
+                    <img src="https://kaatan.loophole.site/cdn/files/notification.svg">
                 </span>
             </grid-row>
             <grid-column class="content-view">
-                <img src="https://cdn-kaatan.azurewebsites.net/files/conjunto_branco.svg" style="
+                <img src="https://kaatan.loophole.site/cdn/files/conjunto_branco.svg" style="
                                 width: 30%;
                                 margin-block: 15px;
                                 user-select: none;
@@ -73,7 +73,7 @@
             </grid-row>
         </grid-column>
         <script>
-            fetch("https://kaatan.azurewebsites.net/azurekaatan/quote/")
+            fetch("https://kaatan.loophole.site/kaatanserver/quote/")
                 .then(x => x.text()).then(quote => {
                     document.getElementById("quote").innerText = quote;
                 });
