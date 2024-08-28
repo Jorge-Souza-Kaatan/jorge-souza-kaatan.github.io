@@ -7,12 +7,12 @@
     <meta name="author" content="Jorge Souza Oliveira dos Santos">
     <meta name="description" content="">
 
-    <script type="module" src="https://kaatan.loophole.site/cdn/lib/acacia/acacia.js"></script>
-    <link rel="stylesheet" href="https://kaatan.loophole.site/cdn/lib/acacia/acacia.css">
+    <script id="rscs_scr_1" type="module"></script>
+    <link id="rscs_sty_2" rel="stylesheet">
 
     <script src="app/kaatan.js"></script>
     <link rel="stylesheet" href="app/app.css">
-    <link rel="shortcut icon" href="https://kaatan.loophole.site/cdn/files/ret_branco.svg" type="image/x-icon">
+    <link id="rscs_sty_1" rel="shortcut icon" type="image/x-icon">
     <title>Kaatan | 100% Brasileira</title>
 </head>
 
@@ -31,14 +31,14 @@
                     <img src="">
                 </span>
                 <span class="titlebar-btn" style="display: none;">
-                    <img src="https://kaatan.loophole.site/cdn/files/default.svg">
+                    <img id="rscs_img_1">
                 </span>
                 <span class="titlebar-btn" style="display: none;">
-                    <img src="https://kaatan.loophole.site/cdn/files/notification.svg">
+                    <img id="rscs_img_2">
                 </span>
             </grid-row>
             <grid-column class="content-view">
-                <img src="https://kaatan.loophole.site/cdn/files/conjunto_branco.svg" style="
+                <img id="rscs_img_3" style="
                                 width: 30%;
                                 margin-block: 15px;
                                 user-select: none;
@@ -73,17 +73,12 @@
                     Santos</text-label>
             </grid-row>
         </grid-column>
-        <script>
-            fetch("https://kaatan.loophole.site/kaatanserver/quote/")
-                .then(x => x.text()).then(quote => {
-                    document.getElementById("quote").innerText = quote;
-                });
-        </script>
     </acacia-container>
     <div class="offline-server" id="container-1">
-        <img src="files/kaatan_bot.svg">
-        <h3>Oh não! Parece que nossos servidores estão offline...</h3>
-        <h3>Não se preocupe, estamos trabalhando para restabelecer seu acesso, retorne em breve.</h3>
+        <span>
+            <img src="files/kaatan_bot.svg" id="loading-img">
+        </span>
+        <p id="loading-txt">Carregando aplicação...</p>
     </div>
 
     <style>
@@ -94,39 +89,82 @@
             margin: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            gap: 10px;
+            display: grid;
+            flex-direction: column;
+            align-content: center;
+            justify-items: center;
             z-index: 1002;
+            background-color: #202530;
+            color: #FD9;
+            font-family: 'Segoe UI', system-ui, 'Open Sans', Verdana, sans-serif;
+            font-weight: lighter;
+            font-size: 1.2em;
         }
 
-        .offline-server * {
+        .offline-server img {
+            height: 100px;
+        }
+
+        .offline-server span {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 50px;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .offline-server p {
             text-align: center;
             margin: auto;
             width: 50%;
         }
     </style>
     <script>
-        const fetchTest = [false, false];
-        fetch("https://kaatan.loophole.site/").then(x => {
-            fetchTest[0] = true;
-            console.log("Servidor principal online");
-        }).catch(err => {
-            fetchTest[0] = false;
-            console.log("Servidor principal offline");
-        });
-        fetch("https://kaatan.loophole.site/cdn/").then(x => {
-            fetchTest[0] = true;
-            console.log("Servidor CDN online");
-        }).catch(err => {
-            fetchTest[0] = false;
-            console.log("Servidor CDN offline");
-        });
+        async function loadRsrc() {
+            const fetchTest = [false, false];
+            await fetch("https://kaatan.loophole.site/").then(x => {
+                fetchTest[0] = true;
+                console.log("Servidor principal online");
+            }).catch(err => {
+                fetchTest[0] = false;
+                console.log("Servidor principal offline");
+            });
+            await fetch("https://kaatan.loophole.site/cdn/").then(x => {
+                fetchTest[1] = true;
+                console.log("Servidor CDN online");
+            }).catch(err => {
+                fetchTest[1] = false;
+                console.log("Servidor CDN offline");
+            });
 
-        if (!fetchTest.includes(false)) {
-            document.getElementById("container-1").style.display = "none";
-            document.getElementById("container-2").style.display = "flex";
+            if (!fetchTest.includes(false)) {
+                document.getElementById("container-1").style.display = "none";
+                document.getElementById("container-2").style.display = "flex";
+                // Fetch online scripts:
+                document.getElementById("rscs_scr_1").setAttribute("src", "https://kaatan.loophole.site/cdn/lib/acacia/acacia.js");
+                // Fetch online styles:
+                document.getElementById("rscs_sty_1").setAttribute("href", "https://kaatan.loophole.site/cdn/files/ret_branco.svg");
+                document.getElementById("rscs_sty_2").setAttribute("href", "https://kaatan.loophole.site/cdn/lib/acacia/acacia.css");
+                // Fetch online scripts:
+                document.getElementById("rscs_img_1").setAttribute("src", "https://kaatan.loophole.site/cdn/files/default.svg");
+                document.getElementById("rscs_img_2").setAttribute("src", "https://kaatan.loophole.site/cdn/files/notification.svg");
+                document.getElementById("rscs_img_3").setAttribute("src", "https://kaatan.loophole.site/cdn/files/conjunto_branco.svg");
+                // Get daily quote:
+                fetch("https://kaatan.loophole.site/kaatanserver/quote/")
+                    .then(x => x.text()).then(quote => {
+                        document.getElementById("quote").innerText = quote;
+                    });
+            } else {
+                document.getElementById("loading-txt").innerHTML = "Oh não! Parece que nossos servidores estão offline...<br>Não se preocupe, estamos trabalhando para restabelecer seu acesso, retorne em breve.";
+                document.getElementById("loading-img").src = "files/erro.svg";
+            }
         }
+        window.addEventListener("DOMContentLoaded", e => {
+            setTimeout(loadRsrc, 1999);
+        });
     </script>
 </body>
 
