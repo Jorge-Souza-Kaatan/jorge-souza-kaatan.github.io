@@ -141,8 +141,6 @@
             });
 
             if (!fetchTest.includes(false)) {
-                document.getElementById("container-1").style.display = "none";
-                document.getElementById("container-2").style.display = "flex";
                 // Fetch online scripts:
                 document.getElementById("rscs_scr_1").setAttribute("src", "https://kaatan.loophole.site/cdn/lib/acacia/acacia.js");
                 // Fetch online styles:
@@ -157,6 +155,8 @@
                     .then(x => x.text()).then(quote => {
                         document.getElementById("quote").innerText = quote;
                     });
+                document.getElementById("container-1").style.display = "none";
+                document.getElementById("container-2").style.display = "flex";
             } else {
                 document.getElementById("loading-txt").innerHTML = "Oh não! Parece que nossos servidores estão offline...<br>Não se preocupe, estamos trabalhando para restabelecer seu acesso, retorne em breve.";
                 document.getElementById("loading-img").src = "files/erro.svg";
