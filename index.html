@@ -7,18 +7,19 @@
     <meta name="author" content="Jorge Souza Oliveira dos Santos">
     <meta name="description" content="">
 
-    <script id="rscs_scr_1" type="module" src="https://kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
-    <link id="rscs_sty_2" rel="stylesheet">
+    <script type="module" src="https://kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
+    <link rel="stylesheet" href="https://kaatan.azurewebsites.net/lib/acacia/acacia.css">
 
     <script src="app/kaatan.js"></script>
     <link rel="stylesheet" href="app/app.css">
-    <link id="rscs_sty_1" rel="shortcut icon" type="image/x-icon" href="https://kaatan.azurewebsites.net/files/ret_branco.svg">
+    <link id="rscs_sty_1" rel="shortcut icon" type="image/x-icon"
+        href="https://kaatan.azurewebsites.net/files/ret_branco.svg">
     <title>Kaatan | 100% Brasileira</title>
 </head>
 
 <body>
 
-    <acacia-container style="display: none;" id="container-2">
+    <acacia-container id="container-2">
         <grid-column class="home-page">
             <grid-row class="home-titlebar">
                 <span>
@@ -31,18 +32,15 @@
                     <img src="">
                 </span>
                 <span class="titlebar-btn" style="display: none;">
-                    <img id="rscs_img_1">
+                    <img src="https://kaatan.azurewebsites.net/files/default.svg">
                 </span>
                 <span class="titlebar-btn" style="display: none;">
-                    <img id="rscs_img_2">
+                    <img src="https://kaatan.azurewebsites.net/files/notification.svg">
                 </span>
             </grid-row>
             <grid-column class="content-view">
-                <img id="rscs_img_3" style="
-                                width: 30%;
-                                margin-block: 15px;
-                                user-select: none;
-                                -webkit-user-drag: none;">
+                <img src="https://kaatan.azurewebsites.net/files/conjunto_branco.svg"
+                    style="width: 30%; margin-block: 15px; user-select: none; -webkit-user-drag: none;">
                 <div class="home-btns">
                     <img src="files/home/i04.svg" onclick="window.open('https://www.kaatan.com.br/radio')">
                     <img src="files/home/i06.svg" onclick="window.location.pathname = '/news.html'">
@@ -74,11 +72,12 @@
             </grid-row>
         </grid-column>
     </acacia-container>
-    <div class="offline-server" id="container-1">
+    <div class="offline-server" id="container-1" style="display: none;">
         <span>
-            <img src="files/kaatan_bot.svg" id="loading-img">
+            <img src="files/erro.svg">
         </span>
-        <p id="loading-txt">Carregando aplicação...</p>
+        <p>Oh não! Parece que nossos servidores estão offline...<br>Não se preocupe, estamos trabalhando para
+            restabelecer seu acesso, retorne em breve.</p>
     </div>
 
     <style>
@@ -124,34 +123,15 @@
     </style>
     <script>
         async function loadRsrc() {
-            const fetchTest = [false, false];
-            await fetch("https://kaatan.loophole.site/").then(x => {
-                fetchTest[0] = true;
+            // Get daily quote:
+            await fetch("https://kaatan.loophole.site/kaatanserver/quote/").then(x => x.text()).then(quote => {
                 console.log("Servidor principal online");
+                document.getElementById("quote").innerText = quote;
             }).catch(err => {
-                fetchTest[0] = false;
                 console.log("Servidor principal offline");
+                document.getElementById("container-1").style.display = "flex";
+                document.getElementById("container-2").style.display = "none";
             });
-
-            if (!fetchTest.includes(false)) {
-                // Fetch online scripts:
-                // Fetch online styles:
-                document.getElementById("rscs_sty_2").setAttribute("href", "https://kaatan.azurewebsites.net/lib/acacia/acacia.css");
-                // Fetch online scripts:
-                document.getElementById("rscs_img_1").setAttribute("src", "https://kaatan.azurewebsites.net/files/default.svg");
-                document.getElementById("rscs_img_2").setAttribute("src", "https://kaatan.azurewebsites.net/files/notification.svg");
-                document.getElementById("rscs_img_3").setAttribute("src", "https://kaatan.azurewebsites.net/files/conjunto_branco.svg");
-                // Get daily quote:
-                fetch("https://kaatan.loophole.site/kaatanserver/quote/")
-                    .then(x => x.text()).then(quote => {
-                        document.getElementById("quote").innerText = quote;
-                    });
-                document.getElementById("container-1").style.display = "none";
-                document.getElementById("container-2").style.display = "flex";
-            } else {
-                document.getElementById("loading-txt").innerHTML = "Oh não! Parece que nossos servidores estão offline...<br>Não se preocupe, estamos trabalhando para restabelecer seu acesso, retorne em breve.";
-                document.getElementById("loading-img").src = "files/erro.svg";
-            }
         }
         window.addEventListener("DOMContentLoaded", e => {
             setTimeout(loadRsrc, 1999);
