@@ -7,12 +7,12 @@
     <meta name="author" content="Jorge Souza Oliveira dos Santos">
     <meta name="description" content="">
 
-    <script id="rscs_scr_1" type="module"></script>
+    <script id="rscs_scr_1" type="module" src="https://kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
     <link id="rscs_sty_2" rel="stylesheet">
 
     <script src="app/kaatan.js"></script>
     <link rel="stylesheet" href="app/app.css">
-    <link id="rscs_sty_1" rel="shortcut icon" type="image/x-icon">
+    <link id="rscs_sty_1" rel="shortcut icon" type="image/x-icon" href="https://kaatan.azurewebsites.net/files/ret_branco.svg">
     <title>Kaatan | 100% Brasileira</title>
 </head>
 
@@ -132,24 +132,15 @@
                 fetchTest[0] = false;
                 console.log("Servidor principal offline");
             });
-            await fetch("https://kaatan.loophole.site/cdn/").then(x => {
-                fetchTest[1] = true;
-                console.log("Servidor CDN online");
-            }).catch(err => {
-                fetchTest[1] = false;
-                console.log("Servidor CDN offline");
-            });
 
             if (!fetchTest.includes(false)) {
                 // Fetch online scripts:
-                document.getElementById("rscs_scr_1").setAttribute("src", "https://kaatan.loophole.site/cdn/lib/acacia/acacia.js");
                 // Fetch online styles:
-                document.getElementById("rscs_sty_1").setAttribute("href", "https://kaatan.loophole.site/cdn/files/ret_branco.svg");
-                document.getElementById("rscs_sty_2").setAttribute("href", "https://kaatan.loophole.site/cdn/lib/acacia/acacia.css");
+                document.getElementById("rscs_sty_2").setAttribute("href", "https://kaatan.azurewebsites.net/lib/acacia/acacia.css");
                 // Fetch online scripts:
-                document.getElementById("rscs_img_1").setAttribute("src", "https://kaatan.loophole.site/cdn/files/default.svg");
-                document.getElementById("rscs_img_2").setAttribute("src", "https://kaatan.loophole.site/cdn/files/notification.svg");
-                document.getElementById("rscs_img_3").setAttribute("src", "https://kaatan.loophole.site/cdn/files/conjunto_branco.svg");
+                document.getElementById("rscs_img_1").setAttribute("src", "https://kaatan.azurewebsites.net/files/default.svg");
+                document.getElementById("rscs_img_2").setAttribute("src", "https://kaatan.azurewebsites.net/files/notification.svg");
+                document.getElementById("rscs_img_3").setAttribute("src", "https://kaatan.azurewebsites.net/files/conjunto_branco.svg");
                 // Get daily quote:
                 fetch("https://kaatan.loophole.site/kaatanserver/quote/")
                     .then(x => x.text()).then(quote => {
