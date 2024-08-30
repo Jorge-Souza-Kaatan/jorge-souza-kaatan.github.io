@@ -122,19 +122,13 @@
         }
     </style>
     <script>
-        async function loadRsrc() {
-            // Get daily quote:
-            await fetch("https://kaatan.loophole.site/kaatanserver/quote/").then(x => x.text()).then(quote => {
-                console.log("Servidor principal online");
-                document.getElementById("quote").innerText = quote;
-            }).catch(err => {
-                console.log("Servidor principal offline");
-                document.getElementById("container-1").style.display = "flex";
-                document.getElementById("container-2").style.display = "none";
-            });
-        }
-        window.addEventListener("DOMContentLoaded", e => {
-            setTimeout(loadRsrc, 1999);
+        await fetch("https://kaatan.loophole.site/kaatanserver/quote/").then(x => x.text()).then(quote => {
+            console.log("Servidor principal online");
+            document.getElementById("quote").innerText = quote;
+        }).catch(err => {
+            console.log("Servidor principal offline");
+            document.getElementById("container-1").style.display = "flex";
+            document.getElementById("container-2").style.display = "none";
         });
     </script>
 </body>
