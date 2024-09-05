@@ -121,8 +121,8 @@
             width: 50%;
         }
     </style>
-    <script async>
-        await fetch("https://kaatan.loophole.site/kaatanserver/quote/").then(x => x.text()).then(quote => {
+    <script>
+        fetch("https://kaatan.loophole.site/kaatanserver/quote/").then(x => x.text()).then(quote => {
             console.log("Servidor principal online");
             document.getElementById("quote").innerText = quote;
         }).catch(err => {
