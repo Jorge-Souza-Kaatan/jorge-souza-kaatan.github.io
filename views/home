@@ -21,15 +21,15 @@
         <grid-column class="content-container">
             <img id="logo" src="https://kaatan.azurewebsites.net/files/conjunto_branco.svg" onclick="window.open('https://www.kaatan.com.br/')" onmouseover="Tooltip.Tooltip('Kaatan site', this)">
             <div class="home-btns">
-                <img id="main-btn-1" src="http://localhost:2998/files/home/i01.svg">
-                <img id="main-btn-2" src="http://localhost:2998/files/home/i02.svg">
-                <img id="main-btn-3" src="http://localhost:2998/files/home/i03.svg">
-                <img id="main-btn-4" src="http://localhost:2998/files/home/i04.svg">
-                <img id="main-btn-5" src="http://localhost:2998/files/home/i05.svg">
+                <img id="main-btn-1" src="/files/home/i01.svg">
+                <img id="main-btn-2" src="/files/home/i02.svg">
+                <img id="main-btn-3" src="/files/home/i03.svg">
+                <img id="main-btn-4" src="/files/home/i04.svg">
+                <img id="main-btn-5" src="/files/home/i05.svg">
 
-                <img id="main-btn-6" src="http://localhost:2998/files/home/i06.svg" style="opacity: 0.5; pointer-events: none; filter: grayscale(1);">
-                <img id="main-btn-7" src="http://localhost:2998/files/home/i07.svg" style="opacity: 0.5; pointer-events: none; filter: grayscale(1);">
-                <img id="main-btn-8" src="http://localhost:2998/files/home/i08.svg" style="opacity: 0.5; pointer-events: none; filter: grayscale(1);">
+                <img id="main-btn-6" src="/files/home/i06.svg" style="opacity: 0.5; pointer-events: none; filter: grayscale(1);">
+                <img id="main-btn-7" src="/files/home/i07.svg" style="opacity: 0.5; pointer-events: none; filter: grayscale(1);">
+                <img id="main-btn-8" src="/files/home/i08.svg" style="opacity: 0.5; pointer-events: none; filter: grayscale(1);">
             </div>
             <grid-column style="width: 90%; justify-content: center;">
                 <text-paragraph id="menu-quote" style="text-align: center; font-size: 0.9em;">Pensamento do dia: <span id="quote" style="font-weight: bold;">A melhor vitória se obtém na batalha que não
