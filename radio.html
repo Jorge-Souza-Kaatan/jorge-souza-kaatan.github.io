@@ -7,7 +7,8 @@
     <link rel="shortcut icon" href="https://kaatan.azurewebsites.net/files/ret_branco.svg" type="image/x-icon">
     <link rel="stylesheet" href="/index.css">
     <script src="/index.js"></script>
-
+    
+    <script type="module" src="https://kaatan.azurewebsites.net/radio/lib/radiokaatan.js"></script>
     <link rel="stylesheet" href="https://kaatan.azurewebsites.net/lib/acacia/acacia.css">
     <script type="module" src="https://kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
 
@@ -39,7 +40,27 @@
                 LinkAction: () => window.location.href = "/blog.html"
             },
             {
-                LinkTile: "Ajuda",
+                LinkTile: "Diretrizes",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/notes.svg",
+                LinkAction: () => App.Rules()
+            },
+            {
+                LinkTile: "Inclusão de trilha",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/plus.svg",
+                LinkAction: () => App.AddTrackRequest()
+            },
+            {
+                LinkTile: "Remoção de trilha",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/delete.svg",
+                LinkAction: () => App.RemoveTrackRequest()
+            },
+            {
+                LinkTile: "Termos de uso",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/home.svg",
+                LinkAction: () => App.Terms()
+            },
+            {
+                LinkTile: "Contato e Suporte",
                 LinkIcon: "https://kaatan.azurewebsites.net/files/help-icon.svg",
                 LinkAction: () => window.location.href = "/suporte.html"
             },
@@ -63,7 +84,7 @@
         }
     }
     //
-    const acacia = new Acacia("ANÚNCIOS | Kaatan - 100% Brasileira", true, sideMenu, () => { App.Main(App.Ads) });
+    const acacia = new Acacia("Rádio Kaatan - 100% Brasileira", false, sideMenu, () => { App.Main(App.Radio) });
     //
     let KaatanConsoleBrand = `
 ██   ██  █████   █████  ████████  █████  ███    ██

@@ -1,4 +1,4 @@
-<grid-column class="posts-view" id="posts-list"></grid-column>
+<grid-column id="posts-list" style="padding: 5px; gap: 5px; height: fit-content;"></grid-column>
 <style>
     text-paragraph {
         text-indent: 50px;

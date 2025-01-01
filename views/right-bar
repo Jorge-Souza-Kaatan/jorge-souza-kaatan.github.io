@@ -1,0 +1,33 @@
+<grid-column class="rb">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+    <img src="https://kaatan.azurewebsites.net/files/ads.svg" class="rb-img">
+</grid-column>
+<style>
+    .rb-img {
+        padding: 5px;
+        gap: 5px;
+        width: 100%;
+        height: fit-content;
+    }
+    .rb-img {
+        width: 100%;
+    }
+    .rb-img:active {
+        scale: 0.5;
+        opacity: 0.3;
+    }
+</style>

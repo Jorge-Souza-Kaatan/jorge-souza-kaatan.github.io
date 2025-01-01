@@ -1,0 +1,54 @@
+<grid-column class="posts-view home-learn" style="display: flex; padding: 5px;">
+    <card-big id="access-box" class="no-hover no-elastic">
+        <acacia-tabs>
+            <acacia-tabs-item id="login-tab-item" class="active">Login</acacia-tabs-item>
+            <acacia-tabs-item id="new-user-tab-item">Novo Usuário</acacia-tabs-item>
+        </acacia-tabs>
+        <acacia-tabs-content id="login-tab" style="display: flex; justify-content: center;">
+            <text-label>Usuário</text-label>
+            <input type="text" class="acacia-input" id="login-mail" maxlength="30" />
+            <text-label>Senha</text-label>
+            <input type="password" class="acacia-input" id="login-passwd" maxlength="30" />
+            <text-link id="login-show-passwd">Mostrar senha</text-link>
+        </acacia-tabs-content>
+        <acacia-tabs-content id="new-user-tab" style="justify-content: center; align-items: center;">
+            <text-label>Insira o seu nome:</text-label>
+            <input type="text" class="acacia-input" id="new-user-name" maxlength="30"></input>
+            <text-label>Crie uma senha:</text-label>
+            <input type="password" class="acacia-input" id="new-user-passwd1" maxlength="30"></input>
+            <text-label>Repita a nova senha:</text-label>
+            <input type="password" class="acacia-input" id="new-user-passwd2" maxlength="30"></input>
+            <text-link id="register-show-passwd">Mostrar senha</text-link>
+        </acacia-tabs-content>
+        <button-squared id="access-btn">Entrar</button-squared>
+        <button-squared id="register-btn" style="display: none;">Cadastrar</button-squared>
+        <text-label id="message" style="font-size: 1em; color: var(--Foreground); text-align: center;">Preencha todos os campos</text-label>
+    </card-big>
+    <style>
+        #access-box {
+            display: grid;
+            gap: 10px;
+            border: none;
+            padding: 0;
+            padding-bottom: 25px;
+            justify-items: center;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        #access-box .acacia-input {
+            width: 90%;
+        }
+
+        #access-box text-label {
+            width: 90%;
+        }
+
+        #access-box button-squared {
+            width: 90%;
+        }
+
+        #access-box input {
+            font-size: 1.2rem;
+        }
+    </style>
+</grid-column>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<compact-list>
+
+    <text-label>Lista lateral</text-label>
+
+    <!-- Extra Items -->
+    <list-item id="leftbar-access-btn">
+        <img src="https://kaatan.azurewebsites.net/files/ret_branco.svg">
+        <text-label>Button 1</text-label>
+    </list-item>
+    <list-item id="leftbar-my-profile-btn">
+        <img src="https://kaatan.azurewebsites.net/files/ret_branco.svg">
+        <text-label>Button 2</text-label>
+    </list-item>
+    <list-item id="leftbar-user-profile-btn">
+        <img src="https://kaatan.azurewebsites.net/files/ret_branco.svg">
+        <text-label>Button 3</text-label>
+    </list-item>
+</compact-list>

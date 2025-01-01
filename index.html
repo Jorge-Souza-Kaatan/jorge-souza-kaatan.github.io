@@ -1,141 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Jorge Souza Oliveira dos Santos">
-    <meta name="description" content="">
-
-    <script type="module" src="https://kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://kaatan.azurewebsites.net/files/ret_branco.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/index.css">
+    <script type="module" src="https://kaatan.azurewebsites.net/radio/lib/radiokaatan.js"></script>
+    <script src="/index.js"></script>
+    
     <link rel="stylesheet" href="https://kaatan.azurewebsites.net/lib/acacia/acacia.css">
+    <script type="module" src="https://kaatan.azurewebsites.net/lib/acacia/acacia.js"></script>
 
-    <script src="app/kaatan.js"></script>
-    <link rel="stylesheet" href="app/app.css">
-    <link id="rscs_sty_1" rel="shortcut icon" type="image/x-icon"
-        href="https://kaatan.azurewebsites.net/files/ret_branco.svg">
     <title>Kaatan | 100% Brasileira</title>
 </head>
 
-<body>
-
-    <acacia-container id="container-2">
-        <grid-column class="home-page">
-            <grid-row class="home-titlebar">
-                <span>
-                    <text-label style="margin: 5px;">Aplicações</text-label>
-                </span>
-                <span>
-                    <img src="">
-                </span>
-                <span>
-                    <img src="">
-                </span>
-                <span class="titlebar-btn" style="display: none;">
-                    <img src="https://kaatan.azurewebsites.net/files/default.svg">
-                </span>
-                <span class="titlebar-btn" style="display: none;">
-                    <img src="https://kaatan.azurewebsites.net/files/notification.svg">
-                </span>
-            </grid-row>
-            <grid-column class="content-view">
-                <img src="https://kaatan.azurewebsites.net/files/conjunto_branco.svg"
-                    style="width: 30%; margin-block: 15px; user-select: none; -webkit-user-drag: none;">
-                <div class="home-btns">
-                    <img src="files/home/i04.svg" onclick="window.open('https://www.kaatan.com.br/radio')">
-                    <img src="files/home/i06.svg" onclick="window.location.pathname = '/news.html'">
-                    <img src="files/home/i03.svg" class="inactive"
-                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
-                    <img src="files/home/i01.svg" class="inactive"
-                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
-                    <img src="files/home/i02.svg" class="inactive"
-                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
-                    <img src="files/home/i05.svg" class="inactive"
-                        onclick="Modal.Message('Aguarde', 'Em breve esta aplicação estará disponível para você.')">
-                    <img src="files/home/i07.svg"
-                        onclick="Modal.Message('Aguarde', 'Ficamos felizes em saber do seu interesse em anunciar em nossos aplicativos, mas ainda estamos recolhendo as métricas de acesso e uso e, assim que elas estiverem disponíveis para um mecanismo de anúncios transparente disponibilizaremos aqui. Retorne em breve.')">
-                    <img src="files/home/i08.svg" onclick="window.location.pathname = '/sobre.html'">
-                </div>
-                <grid-column style="width: 90%;">
-                    <text-paragraph style="text-align: center; font-size: 0.9em; width: 100%;">Pensamento do
-                        dia:</text-paragraph>
-                    <text-paragraph id="quote"
-                        style="text-align: center; font-size: 0.9em; font-weight: bold; width: 100%;">
-                        A melhor vitória se obtém na batalha que não foi travada.
-                    </text-paragraph>
-                </grid-column>
-            </grid-column>
-            <grid-row class="home-footerbar" style="justify-content: center;">
-                <text-label onclick="window.open(`http://www.jorgesouza.com.br`)">Desenvolvido por: Jorge Souza Oliveira
-                    dos
-                    Santos</text-label>
-            </grid-row>
-        </grid-column>
-    </acacia-container>
-    <div class="offline-server" id="container-1" style="display: none;">
-        <span>
-            <img src="files/erro.svg">
-        </span>
-        <p>Oh não! Parece que nossos servidores estão offline...<br>Não se preocupe, estamos trabalhando para
-            restabelecer seu acesso, retorne em breve.</p>
-    </div>
-
-    <style>
-        .offline-server {
-            position: fixed;
-            top: 0;
-            left: 0;
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            gap: 10px;
-            display: grid;
-            flex-direction: column;
-            align-content: center;
-            justify-items: center;
-            z-index: 1002;
-            background-color: #202530;
-            color: #FD9;
-            font-family: 'Segoe UI', system-ui, 'Open Sans', Verdana, sans-serif;
-            font-weight: lighter;
-            font-size: 1.2em;
-        }
-
-        .offline-server img {
-            height: 100px;
-        }
-
-        .offline-server span {
-            width: 100px;
-            height: 100px;
-            overflow: hidden;
-            border-radius: 50px;
-            display: grid;
-            align-content: center;
-            justify-content: center;
-        }
-
-        .offline-server p {
-            text-align: center;
-            margin: auto;
-            width: 50%;
-        }
-    </style>
-    <script>
-        fetch("https://kaatan.loophole.site/kaatanserver/quote/").then(x => x.text()).then(quote => {
-            console.log("Servidor principal online");
-            document.getElementById("quote").innerText = quote;
-        }).catch(err => {
-            console.log("Servidor principal offline");
-            document.getElementById("container-1").style.display = "grid";
-            document.getElementById("container-2").style.display = "none";
-        });
-    </script>
-</body>
+<body></body>
 
 </html>
 
-<script>
+<script type="module" async>
+    import { Acacia } from 'https://kaatan.azurewebsites.net/lib/acacia/acacia.js';
+    const sideMenu = {
+        Links: [
+            // Add more menu-items freely:
+            {
+                LinkTile: "Início",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/home.svg",
+                LinkAction: () => window.location.href = "/"
+            },
+            {
+                LinkTile: "Rádio Kaatan",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/radio_signal.svg",
+                LinkAction: () => window.location = "/radio.html"
+            },
+            {
+                LinkTile: "Blog",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/news.svg",
+                LinkAction: () => window.location.href = "/blog.html"
+            },
+            {
+                LinkTile: "Ajuda",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/help-icon.svg",
+                LinkAction: () => window.location.href = "/suporte.html"
+            },
+            {
+                LinkTile: "Anúncios",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/megaphone-speaker-svgrepo-com.svg",
+                LinkAction: () => window.location.href = "/anuncio.html"
+            },
+            {
+                LinkTile: "Sobre",
+                LinkIcon: "https://kaatan.azurewebsites.net/files/info.svg",
+                LinkAction: () => window.location.href = "/sobre.html"
+            }
+        ],
+        ShowProfileSection: true,
+        ProfileSection: {
+            ProfilePic: "https://kaatan.azurewebsites.net/files/default.svg",
+            ProfileName: "Usuário Kaatan",
+            ProfileUsername: "meu2@mail.com",
+            Action: () => Renderer.Components.MyProfilePage("AAA-0000", "anonimoaaa0000", "Anônimo", "Novo usuário Kaatan", "https://kaatan.azurewebsites.net/avatars/f/1.jpg", "male", "meu@mail.com", { "Insignia": "https://kaatan.azurewebsites.net/files/insignia.jpg", "DaysStreak": 0, "RegisterTime": null, "LastAccessTime": 1718308735837, "MailVerified": false, "UserVerified": false, "Points": 1000, "Stars": 0, "RankName": "Visitante", "RankLevel": 0 }, (userData => { console.log(userData) }))
+        }
+    }
+    //
+    const acacia = new Acacia("BLOG | Kaatan - 100% Brasileira", false, sideMenu, () => { App.Main() });
+    //
     let KaatanConsoleBrand = `
 ██   ██  █████   █████  ████████  █████  ███    ██
 ██  ██  ██   ██ ██   ██    ██    ██   ██ ████   ██
