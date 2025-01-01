@@ -156,8 +156,8 @@ const App = {
             document.getElementById("play-btn-img").src = "https://kaatan.azurewebsites.net/files/pause.svg";
             Tooltip.Toast("Iniciando Rádio Kaatan, aguarde...", 5);
         } else {
-            document.getElementById("paused").style.display = "none";
-            document.getElementById("playing").style.display = "block";
+            document.getElementById("paused").style.display = "block";
+            document.getElementById("playing").style.display = "none";
             document.getElementById("play-btn-img").src = "https://kaatan.azurewebsites.net/files/play.svg";
         }
     },
