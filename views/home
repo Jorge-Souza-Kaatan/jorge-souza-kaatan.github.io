@@ -1,6 +1,6 @@
 <acacia-container style="display: flex; opacity: 1;">
     <grid-column class="home-page">
-        <grid-row class="home-titlebar">
+        <grid-row class="home-titlebar" style="display: none;">
             <span class="titlebar-btns elastic" onclick="App.Search()" onmouseover="Tooltip.Tooltip('Pesquisar', this)">
                 <img id="search-btn-img" src="https://kaatan.azurewebsites.net/files/search.svg">
             </span>
@@ -16,6 +16,9 @@
             <span class="titlebar-btns elastic" onclick="App.Settings()" onmouseover="Tooltip.Tooltip('Configurações', this)">
                 <img id="settings-btn-img" src="https://kaatan.azurewebsites.net/files/settings.svg">
             </span>
+        </grid-row>
+        <grid-row class="home-titlebar">
+            <text-label>Aplicações</text-label>
         </grid-row>
 
         <grid-column class="content-container">
